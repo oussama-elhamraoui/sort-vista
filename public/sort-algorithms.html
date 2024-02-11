@@ -1,0 +1,3943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SortVista</title>
+    <link rel="stylesheet" href="css/output.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css">
+  </head>
+  <body>
+    <header class="w-full z-50">
+      <nav
+        class="transition ease-in-out delay-400 bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+      >
+        <div
+          class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+        >
+          <a href="index.html" class="flex items-center">
+            <img
+              src="images/sort-vista.png"
+              class="mr-3 h-8"
+              alt="FlowBite Logo"
+            />
+          </a>
+          <div class="flex items-center lg:order-2">
+            <!-- <a
+              href="#"
+              class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+              >Create An Account</a
+            >
+            <button
+              data-collapse-toggle="mobile-menu-2"
+              type="button"
+              class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="mobile-menu-2"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <svg
+                class="hidden w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button> -->
+          </div>
+          <div
+            class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+            id="mobile-menu-2"
+          >
+            <ul
+              class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
+            >
+              <li>
+                <a
+                  href="index.html"
+                  class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="cursor-pointer block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-emerald-600 lg:p-0 dark:text-white"
+                  >Sorting Algorithms</a
+                >
+              </li>
+              <li>
+                <a
+                  href="Editor.html"
+                  class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  >Editor</a
+                >
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section
+      class="toggle-typesON w-full min-h-[75vh] flex flex-row gap-10 max-container bg-primary-100/[.06] p-6"
+    >
+      <div class="bg-white w-1/5 p-8 rounded font-semibold">
+        <div class="flex justify-between mb-16">
+          <h1 class="font-semibold text-lg"></h1>
+          <input
+          class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            type="text"
+            id="mySearch"
+            onkeyup="myFunction()"
+            placeholder="Search Algorithms..."
+            title="Type in a category"
+          />
+          <svg
+            data-slot="icon"
+            fill="none"
+            stroke-width="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            class="w-8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            ></path>
+          </svg>
+        </div>
+        <div class="data-BTB">
+          <div class="flex flex-col h-[50vh] overflow-scroll overflow-x-hidden">
+            <ul class="text-center w-full" id="myMenu">
+              <li
+                class="py-4 border-b-2 text-emerald-600 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="bubble-sort"
+              >
+                <a href="#"> Bubble Sort </a>
+              </li>
+              <li
+                class="py-4 border-b-2 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="insertion-sort"
+              >
+                <a href="#"> Insertion Sort </a>
+              </li>
+              <li
+                class="py-4 border-b-2 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="selection-sort"
+              >
+                <a href="#"> Selection Sort </a>
+              </li>
+              <li
+                class="py-4 border-b-2 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="cocktail-sort"
+              >
+                <a href="#">Cocktail Sort</a>
+              </li>
+              <li
+                class="py-4 border-b-2 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="quick-sort"
+              >
+                <a href="#">Quick Sort</a>
+              </li>
+              <li
+                class="py-4 border-b-2 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="heap-sort"
+              >
+                <a href="#">Heap Sort</a>
+              </li>
+              <li
+                class="py-4 border-b-2 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="tim-sort"
+              >
+                <a href="#">Tim Sort</a>
+              </li>
+              <li
+                class="py-4 border-b-2 border-gray-50 hover:bg-gray-200 cursor-pointer"
+                data-type-clicked="shell-sort"
+              >
+                <a href="#">Shell Sort</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col w-full sort-container">
+        <div class="data-btn">
+          <ul class="flex flex-row justify-center items-center">
+            <li
+              class="px-12 py-6 bg-white hover:bg-gray-100 text-emerald-600 font-semibold cursor-pointer"
+              data-type-clicked="description"
+              id="target_button_toChange1"
+              class="description"
+            >
+              Description
+            </li>
+            <li
+              class="px-12 py-6 font-semibold hover:bg-gray-100 cursor-pointer"
+              data-type-clicked="simulation"
+              id="target_button_toChange2"
+            >
+              Simulation
+            </li>
+            <li
+              class="px-12 py-6 font-semibold hover:bg-gray-100 cursor-pointer"
+              data-type-clicked="demonstration"
+              id="target_button_toChange3"
+            >
+              Demonstration
+            </li>
+            <li
+              class="px-12 py-6 font-semibold hover:bg-gray-100 cursor-pointer"
+              data-type-clicked="code"
+              id="target_button_toChange4"
+            >
+              Code
+            </li>
+          </ul>
+        </div>
+        <div class="panel bg-white h-full rounded-lg">
+          <div data-sort="bubble-sort" data-number="1" class="h-full w-full">
+            <div class="p-20 l"  data-type="description-1">
+              <h1 class="text-xl font-bold text-emerald-600">Bubble Sort:</h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Bubble Sort is the simplest sorting algorithm that works by
+                repeatedly swapping the adjacent elements if they are in the
+                wrong order. This algorithm is not suitable for large data sets
+                as its average and worst-case time complexity is quite high.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Bubble Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Time Complexity: O(N<sup> 2</sup>)
+              </p>
+              <p class="pl-6 break-all italic font-semibold">
+                Auxiliary Space: O(1)
+              </p>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Advantages of Bubble Sort:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>Bubble sort is easy to understand and implement.</li>
+                <li>It does not require any additional memory space.</li>
+                <li>
+                  It is a stable sorting algorithm, meaning that elements with
+                  the same key value maintain their relative order in the sorted
+                  output.
+                </li>
+              </ul>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Disadvantages of Bubble Sort:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  Bubble sort has a time complexity of O(N<sup> 2</sup>) which
+                  makes it very slow for large data sets.
+                </li>
+                <li>
+                  Bubble sort is a comparison-based sorting algorithm, which
+                  means that it requires a comparison operator to determine the
+                  relative order of elements in the input data set. It can limit
+                  the efficiency of the algorithm in certain cases.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-1"
+            >
+              <div
+                class="bars1 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons1">
+                <button
+                  id="init_btn"
+                  class="btn-init-bubble text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-bubble text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div data-type="demonstration-1" class="pl-36 hidden font-semibold">
+              <h2 class=" text-emerald-600 text-2xl pb-4">Working of Bubble sort Algorithm:</h2>
+              <p>Now, let's see the working of Bubble sort Algorithm.</p>
+              <p>To understand the working of bubble sort algorithm, let's take an unsorted array. We are taking a short and accurate array, as we know the complexity of bubble sort is <strong>O(n<sup>2</sup>).</strong></p>
+              <p>Let the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm1.png" alt="Bubble sort Algorithm">
+              <h3 class="text-emerald-600 ">First Pass</h3>
+              <p>Sorting will start from the initial two elements. Let compare them to check which is greater.</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm2.png" alt="Bubble sort Algorithm">
+              <p>Here, 32 is greater than 13 (32 &gt; 13), so it is already sorted. Now, compare 32 with 26.</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm3.png" alt="Bubble sort Algorithm">
+              <p>Here, 26 is smaller than 36. So, swapping is required. After swapping new array will look like -</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm4.png" alt="Bubble sort Algorithm">
+              <p>Now, compare 32 and 35.</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm5.png" alt="Bubble sort Algorithm">
+              <p>Here, 35 is greater than 32. So, there is no swapping required as they are already sorted.</p>
+              <p>Now, the comparison will be in between 35 and 10.</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm6.png" alt="Bubble sort Algorithm">
+              <p>Here, 10 is smaller than 35 that are not sorted. So, swapping is required. Now, we reach at the end of the array. After first pass, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm7.png" alt="Bubble sort Algorithm">
+              <p>Now, move to the second iteration.</p>
+              <h3 class="text-emerald-600">Second Pass</h3>
+              <p>The same process will be followed for second iteration.</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm8.png" alt="Bubble sort Algorithm">
+              <p>Here, 10 is smaller than 32. So, swapping is required. After swapping, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm9.png" alt="Bubble sort Algorithm">
+              <p>Now, move to the third iteration.</p>
+              <h3 class="text-emerald-600">Third Pass</h3>
+              <p>The same process will be followed for third iteration.</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm10.png" alt="Bubble sort Algorithm">
+              <p>Here, 10 is smaller than 26. So, swapping is required. After swapping, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm11.png" alt="Bubble sort Algorithm">
+              <p>Now, move to the fourth iteration.</p>
+              <h3 class="text-emerald-600">Fourth pass</h3>
+              <p>Similarly, after the fourth iteration, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/bubble-sort-algorithm12.png" alt="Bubble sort Algorithm">
+              <p>Hence, there is no swapping required, so the array is completely sorted.</p>
+            </div>
+            <div data-type="code-1" class="hidden">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">/* Bubble sort code */
+#include < stdio.h >
+
+int main()
+{
+  int array[100], n, c, d, swap;
+
+  printf("Enter number of elements\n");
+  scanf("%d", &n);
+
+  printf("Enter %d integers\n", n);
+
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
+
+  for (c = 0 ; c < n - 1; c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (array[d] > array[d+1]) /* For decreasing order use '<' instead of '>' */
+      {
+        swap       = array[d];
+        array[d]   = array[d+1];
+        array[d+1] = swap;
+      }
+    }
+  }
+
+  printf("Sorted list in ascending order:\n");
+
+  for (c = 0; c < n; c++)
+      printf("%d\n", array[c]);
+
+  return 0;
+}
+                </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">public class BubbleSortExample {  
+  static void bubbleSort(int[] arr) {  
+      int n = arr.length;  
+      int temp = 0;  
+        for(int i=0; i < n; i++){  
+                for(int j=1; j < (n-i); j++){  
+                        if(arr[j-1] > arr[j]){  
+                                //swap elements  
+                                temp = arr[j-1];  
+                                arr[j-1] = arr[j];  
+                                arr[j] = temp;  
+                        }  
+                        
+                }  
+        }  
+
+  }  
+  public static void main(String[] args) {  
+              int arr[] ={3,60,35,2,45,320,5};  
+                
+              System.out.println("Array Before Bubble Sort");  
+              for(int i=0; i < arr.length; i++){  
+                      System.out.print(arr[i] + " ");  
+              }  
+              System.out.println();  
+                
+              bubbleSort(arr);//sorting array elements using bubble sort  
+                
+              System.out.println("Array After Bubble Sort");  
+              for(int i=0; i < arr.length; i++){  
+                      System.out.print(arr[i] + " ");  
+              }  
+  
+      }  
+}  
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0"># Python program for implementation of Bubble Sort
+
+def bubbleSort(arr):
+    n = len(arr)
+    # optimize code, so if the array is already sorted, it doesn't need
+    # to go through the entire process
+    swapped = False
+    # Traverse through all array elements
+    for i in range(n-1):
+        # range(n) also work but outer loop will
+        # repeat one time more than needed.
+        # Last i elements are already in place
+        for j in range(0, n-i-1):
+  
+            # traverse the array from 0 to n-i-1
+            # Swap if the element found is greater
+            # than the next element
+            if arr[j] > arr[j + 1]:
+                swapped = True
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+          
+        if not swapped:
+            # if we haven't needed to make a single swap, we 
+            # can just exit the main loop.
+            return
+  
+  
+# Driver code to test above
+arr = [64, 34, 25, 12, 22, 11, 90]
+  
+bubbleSort(arr)
+  
+print("Sorted array is:")
+for i in range(len(arr)):
+    print("% d" % arr[i], end=" ")
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">// Bubble sort in C++
+#include < iostream >
+using namespace std;
+
+// perform bubble sort
+void bubbleSort(int array[], int size) {
+
+  // loop to access each array element
+  for (int step = 0; step < size; ++step) {
+      
+    // loop to compare array elements
+    for (int i = 0; i < size - step; ++i) {
+
+      // compare two adjacent elements
+      // change > to < to sort in descending order
+      if (array[i] > array[i + 1]) {
+
+        // swapping elements if elements
+        // are not in the intended order
+        int temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+      }
+    }
+  }
+}
+
+// print array
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; ++i) {
+    cout << "  " << array[i];
+  }
+  cout << "\n";
+}
+
+int main() {
+  int data[] = {-2, 45, 0, 11, -9};
+  
+  // find array's length
+  int size = sizeof(data) / sizeof(data[0]);
+  
+  bubbleSort(data, size);
+  
+  cout << "Sorted Array in Ascending Order:\n";  
+  printArray(data, size);
+}
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">function bubbleSort(arr) {
+  const swaps = [];
+  do {
+    var swapped = false;
+    for (let i = 1; i < arraySize; i++) {
+      if (arr[i - 1] > arr[i]) {
+        swaps.push([i - 1, i]);
+        swapped = true;
+        [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
+      }
+    }
+  } while (swapped);
+  return swaps;
+}
+                </code>
+              </pre>
+              </div>
+              
+          </div>
+        </div>
+          <div
+            data-sort="insertion-sort"
+            data-number="2"
+            class="h-full w-full hidden"
+          >
+            <div class="p-20" data-type="description-2">
+              <h1 class="text-xl font-bold text-emerald-600">
+                Insertion Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Insertion sort is a simple sorting algorithm that works similar
+                to the way you sort playing cards in your hands. The array is
+                virtually split into a sorted and an unsorted part. Values from
+                the unsorted part are picked and placed at the correct position
+                in the sorted part.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Insertion Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Time Complexity:
+              </p>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  The worst-case time complexity of the Insertion sort is
+                  O(N<sup> 2</sup>).
+                </li>
+                <li>
+                  The average case time complexity of the Insertion sort is
+                  O(N<sup> 2</sup>).
+                </li>
+                <li>The time complexity of the best case is O(N).</li>
+              </ul>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Space Complexity of Insertion Sort:
+              </p>
+              <p class="pl-12 mt-4 break-all italic font-semibold">
+                The auxiliary space complexity of Insertion Sort is O(1).
+              </p>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Characteristics of Insertion Sort:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  This algorithm is one of the simplest algorithms with a simple
+                  implementation.
+                </li>
+                <li>
+                  Basically, Insertion sort is efficient for small data values.
+                </li>
+                <li>
+                  Insertion sort is adaptive in nature, i.e. it is appropriate
+                  for data sets that are already partially sorted.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-2"
+            >
+              <div
+                class="bars2 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons2">
+                <button
+                  id="init_btn"
+                  class="btn-init-insertion text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-insertion text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div data-type="demonstration-2" class="hidden font-semibold pl-36">
+              <h2 class="text-emerald-600 text-2xl pb-4">Working of Insertion sort Algorithm:</h2>
+              <p>Now, let's see the working of the insertion sort Algorithm.</p>
+              <p>To understand the working of the insertion sort algorithm, let's take an unsorted array. It will be easier to understand the insertion sort via an example.</p>
+              <p>Let the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort.png" alt="Insertion Sort Algorithm">
+              <p>Initially, the first two elements are compared in insertion sort.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort2.png" alt="Insertion Sort Algorithm">
+              <p>Here, 31 is greater than 12. That means both elements are already in ascending order. So, for now, 12 is stored in a sorted sub-array.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort3.png" alt="Insertion Sort Algorithm">
+              <p>Now, move to the next two elements and compare them.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort4.png" alt="Insertion Sort Algorithm">
+              <p>Here, 25 is smaller than 31. So, 31 is not at correct position. Now, swap 31 with 25. Along with swapping, insertion sort will also check it with all elements in the sorted array.</p>
+              <p>For now, the sorted array has only one element, i.e. 12. So, 25 is greater than 12. Hence, the sorted array remains sorted after swapping.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort5.png" alt="Insertion Sort Algorithm">
+              <p>Now, two elements in the sorted array are 12 and 25. Move forward to the next elements that are 31 and 8.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort6.png" alt="Insertion Sort Algorithm">
+              <p>Both 31 and 8 are not sorted. So, swap them.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort7.png" alt="Insertion Sort Algorithm">
+              <p>After swapping, elements 25 and 8 are unsorted.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort8.png" alt="Insertion Sort Algorithm">
+              <p>So, swap them.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort9.png" alt="Insertion Sort Algorithm">
+              <p>Now, elements 12 and 8 are unsorted.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort10.png" alt="Insertion Sort Algorithm">
+              <p>So, swap them too.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort11.png" alt="Insertion Sort Algorithm">
+              <p>Now, the sorted array has three items that are 8, 12 and 25. Move to the next items that are 31 and 32.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort12.png" alt="Insertion Sort Algorithm">
+              <p>Hence, they are already sorted. Now, the sorted array includes 8, 12, 25 and 31.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort13.png" alt="Insertion Sort Algorithm">
+              <p>Move to the next elements that are 32 and 17.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort14.png" alt="Insertion Sort Algorithm">
+              <p>17 is smaller than 32. So, swap them.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort15.png" alt="Insertion Sort Algorithm">
+              <p>Swapping makes 31 and 17 unsorted. So, swap them too.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort16.png" alt="Insertion Sort Algorithm">
+              <p>Now, swapping makes 25 and 17 unsorted. So, perform swapping again.</p>
+              <img src="https://static.javatpoint.com/ds/images/insertion-sort17.png" alt="Insertion Sort Algorithm">
+              <p>Now, the array is completely sorted.</p>
+            </div>
+            <div data-type="code-2" class="hidden">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">// C program for insertion sort
+#include <math.h>
+#include <stdio.h>
+
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n)
+{
+  int i, key, j;
+  for (i = 1; i < n; i++) {
+    key = arr[i];
+    j = i - 1;
+
+    /* Move elements of arr[0..i-1], that are
+    greater than key, to one position ahead
+    of their current position */
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+    arr[j + 1] = key;
+  }
+}
+
+// A utility function to print an array of size n
+void printArray(int arr[], int n)
+{
+  int i;
+  for (i = 0; i < n; i++)
+    printf("%d ", arr[i]);
+  printf("\n");
+}
+
+/* Driver program to test insertion sort */
+int main()
+{
+  int arr[] = { 12, 11, 13, 5, 6 };
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  insertionSort(arr, n);
+  printArray(arr, n);
+
+  return 0;
+}
+                  </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">// Java program for implementation of Insertion Sort
+public class InsertionSort {
+  /*Function to sort array using insertion sort*/
+  void sort(int arr[])
+  {
+    int n = arr.length;
+    for (int i = 1; i < n; ++i) {
+      int key = arr[i];
+      int j = i - 1;
+
+      /* Move elements of arr[0..i-1], that are
+      greater than key, to one position ahead
+      of their current position */
+      while (j >= 0 && arr[j] > key) {
+        arr[j + 1] = arr[j];
+        j = j - 1;
+      }
+      arr[j + 1] = key;
+    }
+  }
+
+  /* A utility function to print array of size n*/
+  static void printArray(int arr[])
+  {
+    int n = arr.length;
+    for (int i = 0; i < n; ++i)
+      System.out.print(arr[i] + " ");
+
+    System.out.println();
+  }
+
+  // Driver method
+  public static void main(String args[])
+  {
+    int arr[] = { 12, 11, 13, 5, 6 };
+
+    InsertionSort ob = new InsertionSort();
+    ob.sort(arr);
+
+    printArray(arr);
+  }
+};
+                    
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0"># Python program for implementation of Insertion Sort
+# Function to do insertion sort
+def insertionSort(arr):
+
+  # Traverse through 1 to len(arr)
+  for i in range(1, len(arr)):
+
+    key = arr[i]
+
+    # Move elements of arr[0..i-1], that are
+    # greater than key, to one position ahead
+    # of their current position
+    j = i-1
+    while j >= 0 and key < arr[j] :
+        arr[j + 1] = arr[j]
+        j -= 1
+    arr[j + 1] = key
+
+
+# Driver code to test above
+arr = [12, 11, 13, 5, 6]
+insertionSort(arr)
+for i in range(len(arr)):
+  print ("% d" % arr[i])
+                                
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">// C++ program for insertion sort
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to sort an array using
+// insertion sort
+void insertionSort(int arr[], int n)
+{
+  int i, key, j;
+  for (i = 1; i < n; i++) {
+    key = arr[i];
+    j = i - 1;
+
+    // Move elements of arr[0..i-1],
+    // that are greater than key, 
+    // to one position ahead of their
+    // current position
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+    arr[j + 1] = key;
+  }
+}
+
+// A utility function to print an array
+// of size n
+void printArray(int arr[], int n)
+{
+  int i;
+  for (i = 0; i < n; i++)
+    cout << arr[i] << " ";
+  cout << endl;
+}
+
+// Driver code
+int main()
+{
+  int arr[] = { 12, 11, 13, 5, 6 };
+  int N = sizeof(arr) / sizeof(arr[0]);
+
+  insertionSort(arr, N);
+  printArray(arr, N);
+
+  return 0;
+}                              
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">// Javascript program for insertion sort 
+// Function to sort an array using insertion sort
+function insertionSort(arr, n) 
+{ 
+  let i, key, j; 
+  for (i = 1; i < n; i++) 
+  { 
+    key = arr[i]; 
+    j = i - 1; 
+
+    /* Move elements of arr[0..i-1], that are 
+    greater than key, to one position ahead 
+    of their current position */
+    while (j >= 0 && arr[j] > key) 
+    { 
+      arr[j + 1] = arr[j]; 
+      j = j - 1; 
+    } 
+    arr[j + 1] = key; 
+  } 
+} 
+
+// A utility function to print an array of size n 
+function printArray(arr, n) 
+{ 
+  let i; 
+  for (i = 0; i < n; i++) 
+    document.write(arr[i] + " "); 
+  document.write("<br>"); 
+} 
+
+// Driver code 
+  let arr = [12, 11, 13, 5, 6 ]; 
+  let n = arr.length; 
+
+  insertionSort(arr, n); 
+  printArray(arr, n);                         
+                </code>
+              </pre>
+              </div>          
+          </div>
+        </div>
+          <div
+            data-sort="selection-sort"
+            data-number="3"
+            class="hidden h-full w-full"
+          >
+            <div class="hidden p-20" data-type="description-3">
+              <h1 class="text-xl font-bold text-emerald-600">
+                Selection Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Selection sort is a simple and efficient sorting algorithm that
+                works by repeatedly selecting the smallest (or largest) element
+                from the unsorted portion of the list and moving it to the
+                sorted portion of the list.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Selection Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Time Complexity: The time complexity of Selection Sort is
+                O(N<sup> 2</sup>) as there are two nested loops:
+              </p>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  One loop to select an element of Array one by one = O(N).
+                </li>
+                <li>
+                  Another loop to compare that element with every other Array
+                  element = O(N).
+                </li>
+                <li>
+                  Therefore overall complexity = O(N) * O(N) = O(N*N) = O(N<sup>
+                    2</sup
+                  >).
+                </li>
+              </ul>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Auxiliary Space: O(1) as the only extra memory used is for
+                temporary variables while swapping two values in Array. The
+                selection sort never makes more than O(N) swaps and can be
+                useful when memory writing is costly.
+              </p>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Advantages of Selection Sort Algorithm:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>Simple and easy to understand.</li>
+                <li>Works well with small datasets.</li>
+              </ul>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Disadvantages of the Selection Sort Algorithm:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  Selection sort has a time complexity of O(N<sup> 2</sup>) in
+                  the worst and average case.
+                </li>
+                <li>Does not work well on large datasets.</li>
+                <li>
+                  Does not preserve the relative order of items with equal keys
+                  which means it is not stable.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-3"
+            >
+              <div
+                class="bars3 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons3">
+                <button
+                  id="init_btn"
+                  class="btn-init-selection text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-selection text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div class="hidden font-semibold pl-36" data-type="demonstration-3">
+              <h2 class="text-emerald-600 text-2xl pb-4">Working of Selection sort Algorithm:</h2>
+              <p>Now, let's see the working of the Selection sort Algorithm.</p>
+              <p>To understand the working of the Selection sort algorithm, let's take an unsorted array. It will be easier to understand the Selection sort via an example.</p>
+              <p>Let the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/selection-sort.png" alt="selection Sort Algorithm">
+              <p>Now, for the first position in the sorted array, the entire array is to be scanned sequentially.</p>
+              <p>At present, <strong>12</strong> is stored at the first position, after searching the entire array, it is found that <strong>8</strong> is the smallest value.</p>
+              <img src="https://static.javatpoint.com/ds/images/selection-sort2.png" alt="selection Sort Algorithm">
+              <p>So, swap 12 with 8. After the first iteration, 8 will appear at the first position in the sorted array.</p>
+              <img src="https://static.javatpoint.com/ds/images/selection-sort3.png" alt="selection Sort Algorithm">
+              <p>For the second position, where 29 is stored presently, we again sequentially scan the rest of the items of unsorted array. After scanning, we find that 12 is the second lowest element in the array that should be appeared at second position. </p>
+              <img src="https://static.javatpoint.com/ds/images/selection-sort4.png" alt="selection Sort Algorithm">
+              <p>Now, swap 29 with 12. After the second iteration, 12 will appear at the second position in the sorted array. So, after two iterations, the two smallest values are placed at the beginning in a sorted way.</p>
+              <img src="https://static.javatpoint.com/ds/images/selection-sort5.png" alt="selection Sort Algorithm">
+              <p>The same process is applied to the rest of the array elements. Now, we are showing a pictorial representation of the entire sorting process.</p>
+              <img src="https://static.javatpoint.com/ds/images/selection-sort6.png" alt="selection Sort Algorithm">
+              <p>Now, the array is completely sorted.</p>
+            </div>
+            <div class="hidden" data-type="code-3">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">// C program for implementation of selection sort 
+#include <stdio.h> 
+  
+void swap(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
+  
+void selectionSort(int arr[], int n) 
+{ 
+    int i, j, min_idx; 
+  
+    // One by one move boundary of unsorted subarray 
+    for (i = 0; i < n-1; i++) 
+    { 
+        // Find the minimum element in unsorted array 
+        min_idx = i; 
+        for (j = i+1; j < n; j++) 
+          if (arr[j] < arr[min_idx]) 
+            min_idx = j; 
+  
+        // Swap the found minimum element with the first element 
+            if(min_idx != i) 
+            swap(&arr[min_idx], &arr[i]); 
+    } 
+} 
+  
+/* Function to print an array */
+void printArray(int arr[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        printf("%d ", arr[i]); 
+    printf("\n"); 
+} 
+  
+// Driver program to test above functions 
+int main() 
+{ 
+    int arr[] = {64, 25, 12, 22, 11}; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    selectionSort(arr, n); 
+    printf("Sorted array: \n"); 
+    printArray(arr, n); 
+    return 0; 
+}           
+                </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">// Java program for implementation of Selection Sort 
+import java.io.*; 
+public class SelectionSort 
+{ 
+    void sort(int arr[]) 
+    { 
+        int n = arr.length; 
+  
+        // One by one move boundary of unsorted subarray 
+        for (int i = 0; i < n-1; i++) 
+        { 
+            // Find the minimum element in unsorted array 
+            int min_idx = i; 
+            for (int j = i+1; j < n; j++) 
+                if (arr[j] < arr[min_idx]) 
+                    min_idx = j; 
+  
+            // Swap the found minimum element with the first 
+            // element 
+            int temp = arr[min_idx]; 
+            arr[min_idx] = arr[i]; 
+            arr[i] = temp; 
+        } 
+    } 
+  
+    // Prints the array 
+    void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i=0; i < n; ++i) 
+            System.out.print(arr[i]+" "); 
+        System.out.println(); 
+    } 
+  
+    // Driver code to test above 
+    public static void main(String args[]) 
+    { 
+        SelectionSort ob = new SelectionSort(); 
+        int arr[] = {64,25,12,22,11}; 
+        ob.sort(arr); 
+        System.out.println("Sorted array"); 
+        ob.printArray(arr); 
+    } 
+} 
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0"># Python program for implementation of Selection Sort 
+import sys 
+A = [64, 25, 12, 22, 11] 
+  
+# Traverse through all array elements 
+for i in range(len(A)): 
+      
+    # Find the minimum element in remaining  
+    # unsorted array 
+    min_idx = i 
+    for j in range(i+1, len(A)): 
+        if A[min_idx] > A[j]: 
+            min_idx = j 
+              
+    # Swap the found minimum element with  
+    # the first element         
+    A[i], A[min_idx] = A[min_idx], A[i] 
+  
+# Driver code to test above 
+print ("Sorted array") 
+for i in range(len(A)): 
+    print("%d" %A[i],end=" , ")          
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">// C++ program for implementation of selection sort 
+#include < bits/stdc++.h> 
+using namespace std; 
+  
+// Function for Selection sort 
+void selectionSort(int arr[], int n) 
+{ 
+    int i, j, min_idx; 
+  
+    // One by one move boundary of 
+    // unsorted subarray 
+    for (i = 0; i < n - 1; i++) { 
+  
+        // Find the minimum element in 
+        // unsorted array 
+        min_idx = i; 
+        for (j = i + 1; j < n; j++) { 
+            if (arr[j] < arr[min_idx]) 
+                min_idx = j; 
+        } 
+  
+        // Swap the found minimum element 
+        // with the first element 
+        if (min_idx != i) 
+            swap(arr[min_idx], arr[i]); 
+    } 
+} 
+  
+// Function to print an array 
+void printArray(int arr[], int size) 
+{ 
+    int i; 
+    for (i = 0; i < size; i++) { 
+        cout << arr[i] << " "; 
+        cout << endl; 
+    } 
+} 
+  
+// Driver program 
+int main() 
+{ 
+    int arr[] = { 64, 25, 12, 22, 11 }; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+  
+    // Function Call 
+    selectionSort(arr, n); 
+    cout << "Sorted array: \n"; 
+    printArray(arr, n); 
+    return 0; 
+}          
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">// Javascript program for implementation of selection sort 
+function swap(arr,xp, yp) 
+{ 
+    var temp = arr[xp]; 
+    arr[xp] = arr[yp]; 
+    arr[yp] = temp; 
+} 
+  
+function selectionSort(arr,  n) 
+{ 
+    var i, j, min_idx; 
+  
+    // One by one move boundary of unsorted subarray 
+    for (i = 0; i < n-1; i++) 
+    { 
+        // Find the minimum element in unsorted array 
+        min_idx = i; 
+        for (j = i + 1; j < n; j++) 
+        if (arr[j] < arr[min_idx]) 
+            min_idx = j; 
+  
+        // Swap the found minimum element with the first element 
+        swap(arr,min_idx, i); 
+    } 
+} 
+  
+function printArray( arr,  size) 
+{ 
+    var i; 
+    for (i = 0; i < size; i++) 
+        document.write(arr[i] + " "); 
+    document.write(" <br>"); 
+} 
+  
+var arr = [64, 25, 12, 22, 11]; 
+    var n = 5; 
+    selectionSort(arr, n); 
+    document.write("Sorted array: <br>"); 
+    printArray(arr, n); 
+                </code>
+              </pre>
+              </div>
+            </div>
+          </div>
+          <div
+            data-sort="cocktail-sort"
+            data-number="4"
+            class="hidden h-full w-full"
+          >
+            <div class="hidden p-20" data-type="description-4">
+              <h1 class="text-xl font-bold text-emerald-600">Cocktail Sort:</h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Cocktail Sort is a variation of Bubble sort. The Bubble sort
+                algorithm always traverses elements from left and moves the
+                largest element to its correct position in the first iteration
+                and second-largest in the second iteration and so on. Cocktail
+                Sort traverses through a given array in both directions
+                alternatively. <br />Cocktail sort does not go through the
+                unnecessary iteration making it efficient for large arrays.
+                Cocktail sorts break down barriers that limit bubble sorts from
+                being efficient enough on large arrays by not allowing them to
+                go through unnecessary iterations on one specific region (or
+                cluster) before moving onto another section of an array.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Cocktail Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                The time complexity of Cocktail Sort is O(N<sup> 2</sup>) in the
+                worst and average cases, where n is the number of elements in
+                the array. This is because the algorithm iterates through the
+                array multiple times, and in the worst case, each iteration
+                involves comparing every element to its neighbor and possibly
+                swapping them.<br />
+                The best case time complexity is O(n) when the array is already
+                sorted, but this is a rare case. The space complexity of
+                Cocktail Sort is O(1), which is constant. This is because the
+                algorithm sorts the array in place, without using any extra
+                memory.
+              </p>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-4"
+            >
+              <div
+                class="bars4 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons4">
+                <button
+                  id="init_btn"
+                  class="btn-init-cocktail text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-cocktail text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div class="hidden font-semibold pl-36" data-type="demonstration-4">
+              <h2 class="text-emerald-600 text-2xl pb-4">Working of Cocktail Sort Algorithm:</h2>
+              <p>Now, let's see the working of the cocktail sort Algorithm.</p>
+              <p>To understand the working of the cocktail sort algorithm, let's take an unsorted array. We are taking a short and accurate array, as we know the complexity of the cocktail sort is <strong>O(n<sup>2</sup>).</strong></p>
+              <p>Let the elements of array are -</p>
+              <p><strong>Array = {4, 0, 3, 1, 7, 1, 2}</strong></p>
+              <p><strong><u>Iteration 1:</u></strong></p>
+              <p><strong>First Forward pass:</strong></p>
+              <p>In first iteration, the forward pass is similar to the bubble sort. The comparisons of forward pass in first iteration are given as follows -</p>
+              <p>Sorting will start from the initial two elements. Let compare them to check which is greater.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort.png" alt="Cocktail Sort Algorithm">
+              <p>After swapping new array will look like -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort2.png" alt="Cocktail Sort Algorithm">
+              <p>Now compare 4 and 3.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort3.png" alt="Cocktail Sort Algorithm">
+              <p>After swapping new array will look like -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort4.png" alt="Cocktail Sort Algorithm">
+              <p>Now, compare 4 and 1.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort5.png" alt="Cocktail Sort Algorithm">
+              <p>After swapping new array will look like -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort6.png" alt="Cocktail Sort Algorithm">
+              <p>Now, compare 4 and 7.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort7.png" alt="Cocktail Sort Algorithm">
+              <p>Now, the comparison will be between 7 and 1.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort8.png" alt="Cocktail Sort Algorithm">
+              <p>After swapping new array will look like -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort9.png" alt="Cocktail Sort Algorithm">
+              <p>Now, compare 7 and 2.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort10.png" alt="Cocktail Sort Algorithm">
+              <p>Now, we reach at the end of the array. After swapping and first forward pass, the array elements will look like -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort11.png" alt="Cocktail Sort Algorithm">
+              <p>After the first forward pass, the largest element of the array is stored at the last position of the array.</p>
+              <p><strong>First Backward pass:</strong></p>
+              <p>Now, the first backward pass is started. It will be started from the last index of the array except for the index where the largest element is stored.</p>
+              <p>So, from the backward direction, first array elements <strong>2</strong> and <strong>1</strong> will be compared.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort12.png" alt="Cocktail Sort Algorithm">
+              <p>Now compare, 1 and 4.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort13.png" alt="Cocktail Sort Algorithm">
+              <p>After swapping, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort14.png" alt="Cocktail Sort Algorithm">
+              <p>Now compare 1 and 1.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort15.png" alt="Cocktail Sort Algorithm">
+              <p>Now compare, 3 and 1.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort16.png" alt="Cocktail Sort Algorithm">
+              <p>After swapping, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort17.png" alt="Cocktail Sort Algorithm">
+              <p>Now compare, 0 and 1.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort18.png" alt="Cocktail Sort Algorithm">
+              <p>So, after the first backward pass, smallest element from the array is stored at the first index of array. So, after first iteration, the array elements will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort19.png" alt="Cocktail Sort Algorithm">
+              <p><strong><u>Iteration 2:</u></strong></p>
+              <p><strong>Second Forward pass:</strong></p>
+              <p>Now, the second forward pass is started. It will be started from the first index of the array except for the index where the smallest element is stored.</p>
+              <p>So, from the forward direction, first array elements <strong>1</strong> and <strong>3</strong> will be compared.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort20.png" alt="Cocktail Sort Algorithm">
+              <br>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort21.png" alt="Cocktail Sort Algorithm">
+              <br>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort22.png" alt="Cocktail Sort Algorithm">
+              <br>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort23.png" alt="Cocktail Sort Algorithm">
+              <p>Now, we reach at the end of the array. After the second forward pass, the second largest array element will be stored at its exact position. After swapping and second forward pass, the array elements will look like -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort24.png" alt="Cocktail Sort Algorithm">
+              <p><strong>Second Backward pass:</strong></p>
+              <p>Now, the second backward pass is started.</p>
+              <p>So, from backward direction, array elements <strong>3</strong> and <strong>2</strong> will be compared.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort25.png" alt="Cocktail Sort Algorithm">
+              <p>After swapping, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort26.png" alt="Cocktail Sort Algorithm">
+              <p>Now, the array is completely sorted, but the algorithm has to complete the entire pass without any <strong>swap</strong> to know that the array is sorted.</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort27.png" alt="Cocktail Sort Algorithm">
+              <br>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort28.png" alt="Cocktail Sort Algorithm">
+              <p>So, after sorting the array elements will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/cocktail-sort29.png" alt="Cocktail Sort Algorithm">
+              <p>Now, the array is completely sorted.</p>
+              <p>Now, the array is completely sorted.</p>
+            </div>
+            <div class="hidden" data-type="code-4">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">/*
+* C Program to Implement CockTail Sort
+*/
+#include < stdio.h >
+
+#define MAX 8
+
+int main()
+
+{
+
+    int data[MAX];
+
+    int i, j, n, c;
+    printf("\nEnter the data");
+    for (i = 0; i < MAX; i++)
+    {
+        scanf("%d", &data[i]);
+    }
+    n = MAX;    
+    do
+    {
+        /*
+          * Rightward pass will shift the largest element to its correct place at the end
+        */
+        for (i = 0;  i < n - 1; i++)
+        {
+            if (data[i] > data[i + 1])
+            {
+                data[i] = data[i] + data[i + 1];
+                data[i + 1] = data[i] - data[i + 1];
+                data[i] = data[i] - data[i + 1];
+            }
+        }
+        n = n - 1;
+        /* 
+          * Leftward pass will shift the smallest element to its correct place at the beginning
+        */
+        for (i= MAX - 1, c = 0; i >= c; i--)
+        {
+            if(data[i] < data[i - 1])
+            {
+                data[i] = data[i] + data[i - 1];
+                data[i - 1] = data[i] - data[i - 1];
+                data[i] = data[i] - data[i - 1];
+            }
+        }
+        c = c + 1;
+    } while (n != 0 && c != 0);
+    printf("The sorted elements are:");
+    for (i = 0; i < MAX; i++)
+    {
+        printf("%d\t", data[i]);
+    }
+}     
+                </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">// Java program for implementation of Cocktail Sort
+public class CocktailSort 
+{
+  void cocktailSort(int a[])
+  {
+    boolean swapped = true;
+    int start = 0;
+    int end = a.length;
+
+    while (swapped == true) 
+    {
+      // reset the swapped flag on entering the
+      // loop, because it might be true from a
+      // previous iteration.
+      swapped = false;
+
+      // loop from bottom to top same as
+      // the bubble sort
+      for (int i = start; i < end - 1; ++i) 
+      {
+        if (a[i] > a[i + 1]) {
+          int temp = a[i];
+          a[i] = a[i + 1];
+          a[i + 1] = temp;
+          swapped = true;
+        }
+      }
+
+      // if nothing moved, then array is sorted.
+      if (swapped == false)
+        break;
+
+      // otherwise, reset the swapped flag so that it
+      // can be used in the next stage
+      swapped = false;
+
+      // move the end point back by one, because
+      // item at the end is in its rightful spot
+      end = end - 1;
+
+      // from top to bottom, doing the
+      // same comparison as in the previous stage
+      for (int i = end - 1; i >= start; i--) 
+      {
+        if (a[i] > a[i + 1]) 
+        {
+          int temp = a[i];
+          a[i] = a[i + 1];
+          a[i + 1] = temp;
+          swapped = true;
+        }
+      }
+
+      // increase the starting point, because
+      // the last stage would have moved the next
+      // smallest number to its rightful spot.
+      start = start + 1;
+    }
+  }
+
+  /* Prints the array */
+  void printArray(int a[])
+  {
+    int n = a.length;
+    for (int i = 0; i < n; i++)
+      System.out.print(a[i] + " ");
+    System.out.println();
+  }
+
+  // Driver code
+  public static void main(String[] args)
+  {
+    CocktailSort ob = new CocktailSort();
+    int a[] = { 5, 1, 4, 2, 8, 0, 2 };
+    ob.cocktailSort(a);
+    System.out.println("Sorted array");
+    ob.printArray(a);
+  }
+}
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0"># Python program for implementation of Cocktail Sort
+def cocktailSort(a):
+  n = len(a)
+  swapped = True
+  start = 0
+  end = n-1
+  while (swapped == True):
+
+    # reset the swapped flag on entering the loop,
+    # because it might be true from a previous
+    # iteration.
+    swapped = False
+
+    # loop from left to right same as the bubble
+    # sort
+    for i in range(start, end):
+      if (a[i] > a[i + 1]):
+        a[i], a[i + 1] = a[i + 1], a[i]
+        swapped = True
+
+    # if nothing moved, then array is sorted.
+    if (swapped == False):
+      break
+
+    # otherwise, reset the swapped flag so that it
+    # can be used in the next stage
+    swapped = False
+
+    # move the end point back by one, because
+    # item at the end is in its rightful spot
+    end = end-1
+
+    # from right to left, doing the same
+    # comparison as in the previous stage
+    for i in range(end-1, start-1, -1):
+      if (a[i] > a[i + 1]):
+        a[i], a[i + 1] = a[i + 1], a[i]
+        swapped = True
+
+    # increase the starting point, because
+    # the last stage would have moved the next
+    # smallest number to its rightful spot.
+    start = start + 1
+
+
+# Driver code 
+a = [5, 1, 4, 2, 8, 0, 2]
+cocktailSort(a)
+print("Sorted array is:")
+for i in range(len(a)):
+  print("% d" % a[i])
+          
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">// C++ implementation of Cocktail Sort
+#include < bits/stdc++.h >
+using namespace std;
+
+// Sorts array a[0..n-1] using Cocktail sort
+void CocktailSort(int a[], int n)
+{
+  bool swapped = true;
+  int start = 0;
+  int end = n - 1;
+
+  while (swapped) {
+    // reset the swapped flag on entering
+    // the loop, because it might be true from
+    // a previous iteration.
+    swapped = false;
+
+    // loop from left to right same as
+    // the bubble sort
+    for (int i = start; i < end; ++i) {
+      if (a[i] > a[i + 1]) {
+        swap(a[i], a[i + 1]);
+        swapped = true;
+      }
+    }
+
+    // if nothing moved, then array is sorted.
+    if (!swapped)
+      break;
+
+    // otherwise, reset the swapped flag so that it
+    // can be used in the next stage
+    swapped = false;
+
+    // move the end point back by one, because
+    // item at the end is in its rightful spot
+    --end;
+
+    // from right to left, doing the
+    // same comparison as in the previous stage
+    for (int i = end - 1; i >= start; --i) {
+      if (a[i] > a[i + 1]) {
+        swap(a[i], a[i + 1]);
+        swapped = true;
+      }
+    }
+
+    // increase the starting point, because
+    // the last stage would have moved the next
+    // smallest number to its rightful spot.
+    ++start;
+  }
+}
+
+/* Prints the array */
+void printArray(int a[], int n)
+{
+  for (int i = 0; i < n; i++)
+    printf("%d ", a[i]);
+  printf("\n");
+}
+
+// Driver code
+int main()
+{
+  int a[] = { 5, 1, 4, 2, 8, 0, 2 };
+  int n = sizeof(a) / sizeof(a[0]);
+  CocktailSort(a, n);
+  printf("Sorted array :\n");
+  printArray(a, n);
+  return 0;
+}
+                           
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">// Javascript program for implementation of Cocktail Sort
+function cocktailSort(a)
+{
+    let swapped = true;
+    let start = 0;
+    let end = a.length;
+
+    while (swapped == true) {
+
+        // reset the swapped flag on entering the
+        // loop, because it might be true from a
+        // previous iteration.
+        swapped = false;
+
+        // loop from bottom to top same as
+        // the bubble sort
+        for (let i = start; i < end - 1; ++i) {
+            if (a[i] > a[i + 1]) {
+                let temp = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
+                swapped = true;
+            }
+        }
+
+        // if nothing moved, then array is sorted.
+        if (swapped == false)
+            break;
+
+        // otherwise, reset the swapped flag so that it
+        // can be used in the next stage
+        swapped = false;
+
+        // move the end point back by one, because
+        // item at the end is in its rightful spot
+        end = end - 1;
+
+        // from top to bottom, doing the
+        // same comparison as in the previous stage
+        for (let i = end - 1; i >= start; i--) {
+            if (a[i] > a[i + 1]) {
+                let temp = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
+                swapped = true;
+            }
+        }
+
+        // increase the starting point, because
+        // the last stage would have moved the next
+        // smallest number to its rightful spot.
+        start = start + 1;
+    }
+}
+
+/* Prints the array */
+function printArray(a)
+{
+    let n = a.length;
+    for (let i = 0; i < n; i++)
+        document.write(a[i] + " ");
+    document.write("< /br>");
+}
+  
+let a = [ 5, 1, 4, 2, 8, 0, 2 ];
+cocktailSort(a);
+document.write("Sorted array :" + "< /br>");
+printArray(a);
+                </code>
+              </pre>
+              </div>
+            </div>
+          </div>
+          <div
+            data-sort="quick-sort"
+            data-number="5"
+            class="hidden h-full w-full"
+          >
+            <div class="hidden p-20" data-type="description-5">
+              <h1 class="text-xl font-bold text-emerald-600">Quick Sort:</h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                QuickSort is a sorting algorithm based on the Divide and Conquer
+                algorithm that picks an element as a pivot and partitions the
+                given array around the picked pivot by placing the pivot in its
+                correct position in the sorted array.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Quick Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Time Complexity:
+              </p>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  Best Case: Ω (N log (N))<br />
+                  The best-case scenario for quicksort occur when the pivot
+                  chosen at the each step divides the array into roughly equal
+                  halves. In this case, the algorithm will make balanced
+                  partitions, leading to efficient Sorting.
+                </li>
+                <li>
+                  Average Case: θ ( N log (N))<br />
+                  Quicksort’s average-case performance is usually very good in
+                  practice, making it one of the fastest sorting Algorithm.
+                </li>
+                <li>
+                  Worst Case: O(N<sup> 2</sup>)<br />
+                  The worst-case Scenario for Quicksort occur when the pivot at
+                  each step consistently results in highly unbalanced
+                  partitions. When the array is already sorted and the pivot is
+                  always chosen as the smallest or largest element. To mitigate
+                  the worst-case Scenario, various techniques are used such as
+                  choosing a good pivot (e.g., median of three) and using
+                  Randomized algorithm (Randomized Quicksort ) to shuffle the
+                  element before sorting.
+                </li>
+              </ul>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Auxiliary Space: O(1), if we don’t consider the recursive stack
+                space. If we consider the recursive stack space then, in the
+                worst case quicksort could make O(N).
+              </p>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Advantages of Quick Sort:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  It is a divide-and-conquer algorithm that makes it easier to
+                  solve problems.
+                </li>
+                <li>It is efficient on large data sets.</li>
+                <li>
+                  It has a low overhead, as it only requires a small amount of
+                  memory to function.
+                </li>
+              </ul>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Disadvantages of Quick Sort:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  It has a worst-case time complexity of O(N<sup> 2</sup>),
+                  which occurs when the pivot is chosen poorly.
+                </li>
+                <li>It is not a good choice for small data sets.</li>
+                <li>
+                  It is not a stable sort, meaning that if two elements have the
+                  same key, their relative order will not be preserved in the
+                  sorted output in case of quick sort, because here we are
+                  swapping elements according to the pivot’s position (without
+                  considering their original positions).
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-5"
+            >
+              <div
+                class="bars5 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons5">
+                <button
+                  id="init_btn"
+                  class="btn-init-quick text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-quick text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div class="hidden font-semibold pl-36" data-type="demonstration-5">
+              <h2 class="text-emerald-600 text-2xl pb-4">Working of Quick Sort Algorithm:</h2>
+              <p>Now, let's see the working of the Quicksort Algorithm.</p>
+              <p>To understand the working of quick sort, let's take an unsorted array. It will make the concept more clear and understandable.</p>
+              <p>Let the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort2.png" alt="Quick Sort Algorithm">
+              <p>In the given array, we consider the leftmost element as pivot. So, in this case, a[left] = 24, a[right] = 27 and a[pivot] = 24.</p>
+              <p>Since, pivot is at left, so algorithm starts from right and move towards left.</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort3.png" alt="Quick Sort Algorithm">
+              <p>Now, a[pivot] &lt; a[right], so algorithm moves forward one position towards left, i.e. -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort4.png" alt="Quick Sort Algorithm">
+              <p>Now, a[left] = 24, a[right] = 19, and a[pivot] = 24.</p>
+              <p>Because, a[pivot] &gt; a[right], so, algorithm will swap a[pivot] with a[right], and pivot moves to right, as -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort5.png" alt="Quick Sort Algorithm">
+              <p>Now, a[left] = 19, a[right] = 24, and a[pivot] = 24. Since, pivot is at right, so algorithm starts from left and moves to right.</p>
+              <p>As a[pivot] &gt; a[left], so algorithm moves one position to right as -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort6.png" alt="Quick Sort Algorithm">
+              <p>Now, a[left] = 9, a[right] = 24, and a[pivot] = 24. As a[pivot] &gt; a[left], so algorithm moves one position to right as -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort7.png" alt="Quick Sort Algorithm">
+              <p>Now, a[left] = 29, a[right] = 24, and a[pivot] = 24. As a[pivot] &lt; a[left], so, swap a[pivot] and a[left], now pivot is at left, i.e. -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort8.png" alt="Quick Sort Algorithm">
+              <p>Since, pivot is at left, so algorithm starts from right, and move to left. Now, a[left] = 24, a[right] = 29, and a[pivot] = 24. As a[pivot] &lt; a[right], so algorithm moves one position to left, as -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort9.png" alt="Quick Sort Algorithm">
+              <p>Now, a[pivot] = 24, a[left] = 24, and a[right] = 14. As a[pivot] &gt; a[right], so, swap a[pivot] and a[right], now pivot is at right, i.e. -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort10.png" alt="Quick Sort Algorithm">
+              <p>Now, a[pivot] = 24, a[left] = 14, and a[right] = 24. Pivot is at right, so the algorithm starts from left and move to right.</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort11.png" alt="Quick Sort Algorithm">
+              <p>Now, a[pivot] = 24, a[left] = 24, and a[right] = 24. So, pivot, left and right are pointing the same element. It represents the termination of procedure.</p>
+              <p>Element 24, which is the pivot element is placed at its exact position.</p>
+              <p>Elements that are right side of element 24 are greater than it, and the elements that are left side of element 24 are smaller than it.</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort12.png" alt="Quick Sort Algorithm">
+              <p>Now, in a similar manner, quick sort algorithm is separately applied to the left and right sub-arrays. After sorting gets done, the array will be -</p>
+              <img src="https://static.javatpoint.com/ds/images/quick-sort13.png" alt="Quick Sort Algorithm">
+            </div>
+            <div class="hidden" data-type="code-5">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">// Quick sort in C
+#include < stdio.h >
+// function to swap elements
+void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+
+// function to find the partition position
+int partition(int array[], int low, int high) {
+  
+  // select the rightmost element as pivot
+  int pivot = array[high];
+  
+  // pointer for greater element
+  int i = (low - 1);
+
+  // traverse each element of the array
+  // compare them with the pivot
+  for (int j = low; j < high; j++) {
+    if (array[j] <= pivot) {
+        
+      // if element smaller than pivot is found
+      // swap it with the greater element pointed by i
+      i++;
+      
+      // swap element at i with element at j
+      swap(&array[i], &array[j]);
+    }
+  }
+
+  // swap the pivot element with the greater element at i
+  swap(&array[i + 1], &array[high]);
+  
+  // return the partition point
+  return (i + 1);
+}
+
+void quickSort(int array[], int low, int high) {
+  if (low < high) {
+    
+    // find the pivot element such that
+    // elements smaller than pivot are on left of pivot
+    // elements greater than pivot are on right of pivot
+    int pi = partition(array, low, high);
+    
+    // recursive call on the left of pivot
+    quickSort(array, low, pi - 1);
+    
+    // recursive call on the right of pivot
+    quickSort(array, pi + 1, high);
+  }
+}
+
+// function to print array elements
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; ++i) {
+    printf("%d  ", array[i]);
+  }
+  printf("\n");
+}
+
+// main function
+int main() {
+  int data[] = {8, 7, 2, 1, 0, 9, 6};
+  
+  int n = sizeof(data) / sizeof(data[0]);
+  
+  printf("Unsorted Array\n");
+  printArray(data, n);
+  
+  // perform quicksort on data
+  quickSort(data, 0, n - 1);
+  
+  printf("Sorted array in ascending order: \n");
+  printArray(data, n);
+}
+                </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">// Java implementation of QuickSort
+import java.io.*;
+  
+class GFG {
+  
+    // A utility function to swap two elements
+    static void swap(int[] arr, int i, int j)
+    {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+  
+    // This function takes last element as pivot,
+    // places the pivot element at its correct position
+    // in sorted array, and places all smaller to left
+    // of pivot and all greater elements to right of pivot
+    static int partition(int[] arr, int low, int high)
+    {
+        // Choosing the pivot
+        int pivot = arr[high];
+  
+        // Index of smaller element and indicates
+        // the right position of pivot found so far
+        int i = (low - 1);
+  
+        for (int j = low; j <= high - 1; j++) {
+  
+            // If current element is smaller than the pivot
+            if (arr[j] < pivot) {
+  
+                // Increment index of smaller element
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return (i + 1);
+    }
+  
+    // The main function that implements QuickSort
+    // arr[] -- > Array to be sorted,
+    // low -- > Starting index,
+    // high -- > Ending index
+    static void quickSort(int[] arr, int low, int high)
+    {
+        if (low < high) {
+  
+            // pi is partitioning index, arr[p]
+            // is now at right place
+            int pi = partition(arr, low, high);
+  
+            // Separately sort elements before
+            // partition and after partition
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
+    }
+    // To print sorted array
+    public static void printArr(int[] arr)
+    {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+  
+    // Driver Code
+    public static void main(String[] args)
+    {
+        int[] arr = { 10, 7, 8, 9, 1, 5 };
+        int N = arr.length;
+  
+        // Function call
+        quickSort(arr, 0, N - 1);
+        System.out.println("Sorted array:");
+        printArr(arr);
+    }
+}
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0"># Python3 implementation of QuickSort
+# Function to find the partition position
+def partition(array, low, high):
+  
+    # Choose the rightmost element as pivot
+    pivot = array[high]
+  
+    # Pointer for greater element
+    i = low - 1
+  
+    # Traverse through all elements
+    # compare each element with pivot
+    for j in range(low, high):
+        if array[j] <= pivot:
+  
+            # If element smaller than pivot is found
+            # swap it with the greater element pointed by i
+            i = i + 1
+  
+            # Swapping element at i with element at j
+            (array[i], array[j]) = (array[j], array[i])
+  
+    # Swap the pivot element with
+    # the greater element specified by i
+    (array[i + 1], array[high]) = (array[high], array[i + 1])
+  
+    # Return the position from where partition is done
+    return i + 1
+  
+  
+# Function to perform quicksort
+def quicksort(array, low, high):
+    if low < high:
+  
+        # Find pivot element such that
+        # element smaller than pivot are on the left
+        # element greater than pivot are on the right
+        pi = partition(array, low, high)
+  
+        # Recursive call on the left of pivot
+        quicksort(array, low, pi - 1)
+  
+        # Recursive call on the right of pivot
+        quicksort(array, pi + 1, high)
+  
+  
+# Driver code
+if __name__ == '__main__':
+    array = [10, 7, 8, 9, 1, 5]
+    N = len(array)
+  
+    # Function call
+    quicksort(array, 0, N - 1)
+    print('Sorted array:')
+    for x in array:
+        print(x, end=" ")
+                     
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">
+#include <bits/stdc++.h>
+using namespace std;
+
+int partition(int arr[],int low,int high)
+{
+  //choose the pivot
+
+  int pivot=arr[high];
+  //Index of smaller element and Indicate
+  //the right position of pivot found so far
+  int i=(low-1);
+
+  for(int j=low;j<=high;j++)
+  {
+    //If current element is smaller than the pivot
+    if(arr[j] < pivot)
+    {
+      //Increment index of smaller element
+      i++;
+      swap(arr[i],arr[j]);
+    }
+  }
+  swap(arr[i+1],arr[high]);
+  return (i+1);
+}
+
+// The Quicksort function Implement
+      
+void quickSort(int arr[],int low,int high)
+{
+  // when low is less than high
+  if(low < high)
+  {
+    // pi is the partition return index of pivot
+    
+    int pi=partition(arr,low,high);
+    
+    //Recursion Call
+    //smaller element than pivot goes left and
+    //higher element goes right
+    quickSort(arr,low,pi-1);
+    quickSort(arr,pi+1,high);
+  }
+}
+      
+
+int main() {
+    int arr[]={10,7,8,9,1,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    // Function call
+    quickSort(arr,0,n-1);
+    //Print the sorted array
+    cout<<"Sorted Array\n";
+    for(int i=0; i < n;i++)
+    {
+      cout<< arr[i] << " ";
+    }
+    return 0;
+}                    
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">// Function to partition the array and return the partition index
+function partition(arr, low, high) {
+  // Choosing the pivot
+  let pivot = arr[high];
+
+  // Index of smaller element and indicates the right position of pivot found so far
+  let i = low - 1;
+
+  for (let j = low; j <= high - 1; j++) {
+    // If current element is smaller than the pivot
+    if (arr[j] < pivot) {
+      // Increment index of smaller element
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
+    }
+  }
+
+  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]]; // Swap pivot to its correct position
+  return i + 1; // Return the partition index
+}
+
+// The main function that implements QuickSort
+function quickSort(arr, low, high) {
+  if (low < high) {
+    // pi is the partitioning index, arr[pi] is now at the right place
+    let pi = partition(arr, low, high);
+
+    // Separately sort elements before partition and after partition
+    quickSort(arr, low, pi - 1);
+    quickSort(arr, pi + 1, high);
+  }
+}
+
+// Driver code
+let arr = [10, 7, 8, 9, 1, 5];
+let N = arr.length;
+
+// Function call
+quickSort(arr, 0, N - 1);
+console.log("Sorted array:");
+console.log(arr.join(" "));
+                </code>
+              </pre>
+              </div>          
+            </div>
+          </div>
+          <div
+            data-sort="heap-sort"
+            data-number="6"
+            class="hidden h-full w-full"
+          >
+            <div class="hidden p-20" data-type="description-6">
+              <h1 class="text-xl font-bold text-emerald-600">Heap Sort:</h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Heap sort is a comparison-based sorting technique based on
+                Binary Heap data structure. It is similar to the selection sort
+                where we first find the minimum element and place the minimum
+                element at the beginning. Repeat the same process for the
+                remaining elements.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Heap Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Time Complexity: O(N log N).
+              </p>
+              <p class="pl-6 break-all italic font-semibold">
+                Auxiliary Space: O(log n), due to the recursive call stack.
+                However, auxiliary space can be O(1) for iterative
+                implementation.
+              </p>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Advantages of Heap Sort:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  Efficient Time Complexity: Heap Sort has a time complexity of
+                  O(n log n) in all cases. This makes it efficient for sorting
+                  large datasets. The log n factor comes from the height of the
+                  binary heap, and it ensures that the algorithm maintains good
+                  performance even with a large number of elements.
+                </li>
+                <li>
+                  Memory Usage: Memory usage can be minimal because apart from
+                  what is necessary to hold the initial list of items to be
+                  sorted, it needs no additional memory space to work.
+                </li>
+                <li>
+                  Simplicity: It is simpler to understand than other equally
+                  efficient sorting algorithms because it does not use advanced
+                  computer science concepts such as recursion.
+                </li>
+              </ul>
+              <h1 class="text-xl font-bold mt-4 text-emerald-600">
+                Disadvantages of Heap Sort:
+              </h1>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>Costly: Heap sort is costly.</li>
+                <li>
+                  Unstable: Heap sort is unstable. It might rearrange the
+                  relative order.
+                </li>
+                <li>
+                  Efficient: Heap Sort is not very efficient when working with
+                  highly complex data.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-6"
+            >
+              <div
+                class="bars6 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons6">
+                <button
+                  id="init_btn"
+                  class="btn-init-heap text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-heap text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div class="hidden font-semibold pl-36" data-type="demonstration-6">
+              <h2 class="text-emerald-600 text-2xl pb-4">Working of Heap sort Algorithm:</h2>
+              <p>Now, let's see the working of the Heapsort Algorithm.</p>
+              <p>In heap sort, basically, there are two phases involved in the sorting of elements. By using the heap sort algorithm, they are as follows -</p>
+              <ul class="points">
+              <li>The first step includes the creation of a heap by adjusting the elements of the array.</li>
+              <li>After the creation of heap, now remove the root element of the heap repeatedly by shifting it to the end of the array, and then store the heap structure with the remaining elements.</li>
+              </ul>
+              <p>Now let's see the working of heap sort in detail by using an example. To understand it more clearly, let's take an unsorted array and try to sort it using heap sort. It will make the explanation clearer and easier.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm1.png" alt="Heap Sort Algorithm">
+              <p>First, we have to construct a heap from the given array and convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm2.png" alt="Heap Sort Algorithm">
+              <p>After converting the given heap into max heap, the array elements are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm3.png" alt="Heap Sort Algorithm">
+              <p>Next, we have to delete the root element <strong>(89)</strong> from the max heap. To delete this node, we have to swap it with the last node, i.e. <strong>(11).</strong> After deleting the root element, we again have to heapify it to convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm4.png" alt="Heap Sort Algorithm">
+              <p>After swapping the array element <strong>89</strong> with <strong>11,</strong> and converting the heap into max-heap, the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm5.png" alt="Heap Sort Algorithm">
+              <p>In the next step, again, we have to delete the root element <strong>(81)</strong> from the max heap. To delete this node, we have to swap it with the last node, i.e. <strong>(54).</strong> After deleting the root element, we again have to heapify it to convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm6.png" alt="Heap Sort Algorithm">
+              <p>After swapping the array element <strong>81</strong> with <strong>54</strong> and converting the heap into max-heap, the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm7.png" alt="Heap Sort Algorithm">
+              <p>In the next step, we have to delete the root element <strong>(76)</strong> from the max heap again. To delete this node, we have to swap it with the last node, i.e. <strong>(9).</strong> After deleting the root element, we again have to heapify it to convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm8.png" alt="Heap Sort Algorithm">
+              <p>After swapping the array element <strong>76</strong> with <strong>9</strong> and converting the heap into max-heap, the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm9.png" alt="Heap Sort Algorithm">
+              <p>In the next step, again we have to delete the root element <strong>(54)</strong> from the max heap. To delete this node, we have to swap it with the last node, i.e. <strong>(14).</strong> After deleting the root element, we again have to heapify it to convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm10.png" alt="Heap Sort Algorithm">
+              <p>After swapping the array element <strong>54</strong> with <strong>14</strong> and converting the heap into max-heap, the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm11.png" alt="Heap Sort Algorithm">
+              <p>In the next step, again we have to delete the root element <strong>(22)</strong> from the max heap. To delete this node, we have to swap it with the last node, i.e. <strong>(11).</strong> After deleting the root element, we again have to heapify it to convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm12.png" alt="Heap Sort Algorithm">
+              <p>After swapping the array element <strong>22</strong> with <strong>11</strong> and converting the heap into max-heap, the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm13.png" alt="Heap Sort Algorithm">
+              <p>In the next step, again we have to delete the root element <strong>(14)</strong> from the max heap. To delete this node, we have to swap it with the last node, i.e. <strong>(9).</strong> After deleting the root element, we again have to heapify it to convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm14.png" alt="Heap Sort Algorithm">
+              <p>After swapping the array element <strong>14</strong> with <strong>9</strong> and converting the heap into max-heap, the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm15.png" alt="Heap Sort Algorithm">
+              <p>In the next step, again we have to delete the root element <strong>(11)</strong> from the max heap. To delete this node, we have to swap it with the last node, i.e. <strong>(9).</strong> After deleting the root element, we again have to heapify it to convert it into max heap.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm16.png" alt="Heap Sort Algorithm">
+              <p>After swapping the array element <strong>11</strong> with <strong>9,</strong> the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm17.png" alt="Heap Sort Algorithm">
+              <p>Now, heap has only one element left. After deleting it, heap will be empty.</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm18.png" alt="Heap Sort Algorithm">
+              <p>After completion of sorting, the array elements are -</p>
+              <img src="https://static.javatpoint.com/ds/images/heap-sort-algorithm19.png" alt="Heap Sort Algorithm">
+              <p>Now, the array is completely sorted.</p>
+            </div>
+            <div class="hidden" data-type="code-6">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">// Heap Sort in C
+#include < stdio.h >
+
+// Function to swap the position of two elements
+
+void swap(int* a, int* b)
+{
+
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+// To heapify a subtree rooted with node i
+// which is an index in arr[].
+// n is size of heap
+void heapify(int arr[], int N, int i)
+{
+  // Find largest among root,
+  // left child and right child
+
+  // Initialize largest as root
+  int largest = i;
+
+  // left = 2*i + 1
+  int left = 2 * i + 1;
+
+  // right = 2*i + 2
+  int right = 2 * i + 2;
+
+  // If left child is larger than root
+  if (left < N && arr[left] > arr[largest])
+
+    largest = left;
+
+  // If right child is larger than largest
+  // so far
+  if (right < N && arr[right] > arr[largest])
+
+    largest = right;
+
+  // Swap and continue heapifying
+  // if root is not largest
+  // If largest is not root
+  if (largest != i) {
+
+    swap(&arr[i], &arr[largest]);
+
+    // Recursively heapify the affected
+    // sub-tree
+    heapify(arr, N, largest);
+  }
+}
+
+// Main function to do heap sort
+void heapSort(int arr[], int N)
+{
+
+  // Build max heap
+  for (int i = N / 2 - 1; i >= 0; i--)
+
+    heapify(arr, N, i);
+
+  // Heap sort
+  for (int i = N - 1; i >= 0; i--) {
+
+    swap(&arr[0], &arr[i]);
+
+    // Heapify root element
+    // to get highest element at
+    // root again
+    heapify(arr, i, 0);
+  }
+}
+
+// A utility function to print array of size n
+void printArray(int arr[], int N)
+{
+  for (int i = 0; i < N; i++)
+    printf("%d ", arr[i]);
+  printf("\n");
+}
+
+// Driver's code
+int main()
+{
+  int arr[] = { 12, 11, 13, 5, 6, 7 };
+  int N = sizeof(arr) / sizeof(arr[0]);
+
+  // Function call
+  heapSort(arr, N);
+  printf("Sorted array is\n");
+  printArray(arr, N);
+}
+                </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">// Java program for implementation of Heap Sort
+public class HeapSort {
+	public void sort(int arr[])
+	{
+		int N = arr.length;
+
+		// Build heap (rearrange array)
+		for (int i = N / 2 - 1; i >= 0; i--)
+			heapify(arr, N, i);
+
+		// One by one extract an element from heap
+		for (int i = N - 1; i > 0; i--) {
+			// Move current root to end
+			int temp = arr[0];
+			arr[0] = arr[i];
+			arr[i] = temp;
+
+			// call max heapify on the reduced heap
+			heapify(arr, i, 0);
+		}
+	}
+
+	// To heapify a subtree rooted with node i which is
+	// an index in arr[]. n is size of heap
+	void heapify(int arr[], int N, int i)
+	{
+		int largest = i; // Initialize largest as root
+		int l = 2 * i + 1; // left = 2*i + 1
+		int r = 2 * i + 2; // right = 2*i + 2
+
+		// If left child is larger than root
+		if (l < N && arr[l] > arr[largest])
+			largest = l;
+
+		// If right child is larger than largest so far
+		if (r < N && arr[r] > arr[largest])
+			largest = r;
+
+		// If largest is not root
+		if (largest != i) {
+			int swap = arr[i];
+			arr[i] = arr[largest];
+			arr[largest] = swap;
+
+			// Recursively heapify the affected sub-tree
+			heapify(arr, N, largest);
+		}
+	}
+
+	/* A utility function to print array of size n */
+	static void printArray(int arr[])
+	{
+		int N = arr.length;
+
+		for (int i = 0; i < N; ++i)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+
+	// Driver's code
+	public static void main(String args[])
+	{
+		int arr[] = { 12, 11, 13, 5, 6, 7 };
+		int N = arr.length;
+
+		// Function call
+		HeapSort ob = new HeapSort();
+		ob.sort(arr);
+
+		System.out.println("Sorted array is");
+		printArray(arr);
+	}
+}
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0"># Python program for implementation of heap Sort
+# To heapify subtree rooted at index i.
+# n is size of heap
+
+def heapify(arr, N, i):
+    largest = i  # Initialize largest as root
+    l = 2 * i + 1     # left = 2*i + 1
+    r = 2 * i + 2     # right = 2*i + 2
+  
+    # See if left child of root exists and is
+    # greater than root
+    if l < N and arr[largest] < arr[l]:
+        largest = l
+  
+    # See if right child of root exists and is
+    # greater than root
+    if r < N and arr[largest] < arr[r]:
+        largest = r
+  
+    # Change root, if needed
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+  
+        # Heapify the root.
+        heapify(arr, N, largest)
+  
+# The main function to sort an array of given size
+  
+  
+def heapSort(arr):
+    N = len(arr)
+  
+    # Build a maxheap.
+    for i in range(N//2 - 1, -1, -1):
+        heapify(arr, N, i)
+  
+    # One by one extract elements
+    for i in range(N-1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # swap
+        heapify(arr, i, 0)
+  
+  
+# Driver's code
+if __name__ == '__main__':
+    arr = [12, 11, 13, 5, 6, 7]
+  
+    # Function call
+    heapSort(arr)
+    N = len(arr)
+  
+    print("Sorted array is")
+    for i in range(N):
+        print("%d" % arr[i], end=" ")         
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">// C++ program for implementation of Heap Sort
+#include < iostream >
+using namespace std;
+
+// To heapify a subtree rooted with node i
+// which is an index in arr[].
+// n is size of heap
+void heapify(int arr[], int N, int i)
+{
+
+  // Initialize largest as root
+  int largest = i;
+
+  // left = 2*i + 1
+  int l = 2 * i + 1;
+
+  // right = 2*i + 2
+  int r = 2 * i + 2;
+
+  // If left child is larger than root
+  if (l < N && arr[l] > arr[largest])
+    largest = l;
+
+  // If right child is larger than largest
+  // so far
+  if (r < N && arr[r] > arr[largest])
+    largest = r;
+
+  // If largest is not root
+  if (largest != i) {
+    swap(arr[i], arr[largest]);
+
+    // Recursively heapify the affected
+    // sub-tree
+    heapify(arr, N, largest);
+  }
+}
+
+// Main function to do heap sort
+void heapSort(int arr[], int N)
+{
+
+  // Build heap (rearrange array)
+  for (int i = N / 2 - 1; i >= 0; i--)
+    heapify(arr, N, i);
+
+  // One by one extract an element
+  // from heap
+  for (int i = N - 1; i > 0; i--) {
+
+    // Move current root to end
+    swap(arr[0], arr[i]);
+
+    // call max heapify on the reduced heap
+    heapify(arr, i, 0);
+  }
+}
+
+// A utility function to print array of size n
+void printArray(int arr[], int N)
+{
+  for (int i = 0; i < N; ++i)
+    cout << arr[i] << " ";
+  cout << "\n";
+}
+
+// Driver's code
+int main()
+{
+  int arr[] = { 12, 11, 13, 5, 6, 7 };
+  int N = sizeof(arr) / sizeof(arr[0]);
+
+  // Function call
+  heapSort(arr, N);
+
+  cout << "Sorted array is \n";
+  printArray(arr, N);
+}
+
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">// JavaScript program for implementation
+// of Heap Sort
+
+  function sort( arr)
+  {
+    var N = arr.length;
+
+    // Build heap (rearrange array)
+    for (var i = Math.floor(N / 2) - 1; i >= 0; i--)
+      heapify(arr, N, i);
+
+    // One by one extract an element from heap
+    for (var i = N - 1; i > 0; i--) {
+      // Move current root to end
+      var temp = arr[0];
+      arr[0] = arr[i];
+      arr[i] = temp;
+
+      // call max heapify on the reduced heap
+      heapify(arr, i, 0);
+    }
+  }
+
+  // To heapify a subtree rooted with node i which is
+  // an index in arr[]. n is size of heap
+  function heapify(arr, N, i)
+  {
+    var largest = i; // Initialize largest as root
+    var l = 2 * i + 1; // left = 2*i + 1
+    var r = 2 * i + 2; // right = 2*i + 2
+
+    // If left child is larger than root
+    if (l < N && arr[l] > arr[largest])
+      largest = l;
+
+    // If right child is larger than largest so far
+    if (r < N && arr[r] > arr[largest])
+      largest = r;
+
+    // If largest is not root
+    if (largest != i) {
+      var swap = arr[i];
+      arr[i] = arr[largest];
+      arr[largest] = swap;
+
+      // Recursively heapify the affected sub-tree
+      heapify(arr, N, largest);
+    }
+  }
+
+  /* A utility function to print array of size n */
+  function printArray(arr)
+  {
+    var N = arr.length;
+    for (var i = 0; i < N; ++i)
+      document.write(arr[i] + " ");
+    
+  }
+
+
+  var arr = [12, 11, 13, 5, 6, 7];
+  var N = arr.length;
+
+  sort(arr);
+
+  document.write( "Sorted array is");
+  printArray(arr, N);                    
+                </code>
+              </pre>
+              </div>
+              
+          
+            </div>
+          </div>
+          <div
+            data-sort="tim-sort"
+            data-number="7"
+            class="hidden h-full w-full"
+          >
+            <div class="hidden p-20" data-type="description-7">
+              <h1 class="text-xl font-bold text-emerald-600">Tim Sort:</h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Tim Sort is a hybrid sorting algorithm derived from merge sort
+                and insertion sort. It was designed to perform well on many
+                kinds of real-world data. Tim Sort is the default sorting
+                algorithm used by Python’s sorted() and list.sort() functions.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Tim Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Time Complexity:
+              </p>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  Best Case Complexity - It occurs when there is no sorting
+                  required, i.e. the array is already sorted. The best-case time
+                  complexity of Tim sort is O(n).
+                </li>
+                <li>
+                  Average Case Complexity - It occurs when the array elements
+                  are in jumbled order that is not properly ascending and not
+                  properly descending. The average case time complexity of Tim
+                  sort is O(n log n).
+                </li>
+                <li>
+                  Worst Case Complexity - It occurs when the array elements are
+                  required to be sorted in reverse order. That means suppose you
+                  have to sort the array elements in ascending order, but its
+                  elements are in descending order. The worst-case time
+                  complexity of Tim sort is O(n log n).
+                </li>
+              </ul>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Space Complexity: The space complexity of Tim sort is O(n).
+              </p>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-7"
+            >
+              <div
+                class="bars7 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons7">
+                <button
+                  id="init_btn"
+                  class="btn-init-tim text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-tim text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div class="hidden font-semibold pl-36" data-type="demonstration-7">
+              <div class="" role="none"><h2>
+                <h2 class="text-emerald-600 text-2xl pb-4">Working of Timsort Algorithm:</h2>  
+                <p><strong>Timsort</strong> is a hybrid sorting algorithm. It is used to give optimal results while dealing with real-world data.</p>
+                <p> Timsort has been derived from<strong> </strong>Insertion Sort and Binary Merge Sort.  At first, the array is stored into smaller chunks of data known as <strong>runs</strong><em><strong>.</strong></em> These runs are sorted using insertion sort and then merged using the merge sort.</p>
+                <h3>Algorithm</h3>
+                <p>Step 1<strong>:</strong>  The array is broken down into runs. </p>
+                <p>Preferably, the size of the run (minrun) should be such that (n/minrun) is a power of 2 (since merge sort gives optimal results in that case).</p>
+                <p>Step 2: Initialize the size of the run as 32 or 64. </p>
+                <p>Step 3: Sort every run using insertion sort. If the array size is smaller than 64, then it is just sorted using insertion sort.</p>
+                <p>Step 4: Merge all the runs one by one using merge sort.</p>
+                <p>Step 5: After every iteration, double the size of the merged sub-array. </p><h3>Visual representation</h3><p>Here is a visual representation of the Timsort. For the sake of<em> </em>simplicity<em>, </em>the minrun is of length 4. </p></div>
+                <img class="max-w-4xl items-center" src="images/jzzju7oi.bmp" alt="#">
+            </div>
+            <div class="hidden" data-type="code-7">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">
+#include< stdio.h >  
+const int RUN = 32;  
+int min(int a, int b)    
+{    
+    if(a < b)    
+    return a;     
+    else     
+    return b;     
+}    
+/* This function sorts array from starting index to ending index which is of size atmost RUN */  
+void insertionSort(int a[], int beg, int end) /* function to sort an array with insertion sort */  
+{  
+    int i, j, temp;  
+    for (i = beg + 1; i <= end; i++) {  
+        temp = a[i];  
+        j = i - 1;  
+  
+        while(j>=0 && temp <= a[j])    
+        {    
+            a[j+1] = a[j];     
+            jj = j-1;    
+        }    
+        a[j+1] = temp;    
+    }  
+}  
+/* Function to merge the sorted runs */  
+void merge(int a[], int beg, int mid, int end)    
+{    
+    int i, j, k;  
+    int n1 = mid - beg + 1;    
+    int n2 = end - mid;        
+    int LeftArray[n1], RightArray[n2]; //temporary arrays      
+    /* copy data to temp arrays */  
+    for (int i = 0; i < n1; i++)    
+    LeftArray[i] = a[beg + i];    
+    for (int j = 0; j < n2; j++)    
+    RightArray[j] = a[mid + 1 + j];       
+    i = 0;   
+    j = 0;  
+    k = beg;       
+    while (i < n1 && j < n2)    
+    {    
+        if(LeftArray[i] <= RightArray[j])    
+        {    
+            a[k] = LeftArray[i];    
+            i++;    
+        }    
+        else    
+        {    
+            a[k] = RightArray[j];    
+            j++;    
+        }    
+        k++;    
+    }    
+    while (i < n1)    
+    {    
+        a[k] = LeftArray[i];    
+        i++;    
+        k++;    
+    }       
+    while (j < n2)    
+    {    
+        a[k] = RightArray[j];    
+        j++;    
+        k++;    
+    }    
+}  
+/* function to implement tim sort */  
+void timSort(int a[], int n)  
+{  
+      
+    /* Sort individual subarrays of size RUN */  
+    for (int i = 0; i < n; i+=RUN)  
+        insertionSort(a, i, min((i+RUN-1), (n-1)));   
+    // Start merging from size RUN (or 32).  
+    for (int size = RUN; size < n; size = 2*size)  
+    {  
+        for (int beg = 0; beg < n; beg += 2*size)  
+        {  
+            /* find ending point of left sub array. The starting point of right sub array is mid + 1 */  
+            int mid = beg + size - 1;  
+            int end = min((beg + 2*size - 1),(n-1));  
+  
+            /* Merge subarray a[beg...mid] and a[mid+1...end] */  
+            if(mid < end)  
+                merge(a, beg, mid, end);  
+        }  
+    }  
+}  
+/* function to print the array elements */  
+void printArr(int a[], int n)  
+{  
+    for (int i = 0; i < n; i++)  
+        printf("%d ", a[i]);  
+    printf("\n");  
+}  
+int main()  
+{  
+    int a[] = { 40, 12, 31, 27, 25, 8, 1, 32, 17 };  
+    int n = sizeof(a) / sizeof(a[0]);  
+    printf("Before sorting array elements are - \n");  
+    printArr(a, n);  
+    timSort(a, n);  
+    printf("\nAfter sorting array elements are - \n");    
+    printArr(a, n);  
+    return 0;  
+}  
+                </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">// Java program to perform TimSort. 
+class GFG { 
+
+  static int MIN_MERGE = 32; 
+
+  public static int minRunLength(int n) 
+  { 
+    assert n >= 0; 
+
+    // Becomes 1 if any 1 bits are shifted off 
+    int r = 0; 
+    while (n >= MIN_MERGE) { 
+      r |= (n & 1); 
+      n >>= 1; 
+    } 
+    return n + r; 
+  } 
+
+  // This function sorts array from left index to 
+  // to right index which is of size atmost RUN 
+  public static void insertionSort(int[] arr, int left, 
+                  int right) 
+  { 
+    for (int i = left + 1; i <= right; i++) { 
+      int temp = arr[i]; 
+      int j = i - 1; 
+      while (j >= left && arr[j] > temp) { 
+        arr[j + 1] = arr[j]; 
+        j--; 
+      } 
+      arr[j + 1] = temp; 
+    } 
+  } 
+
+  // Merge function merges the sorted runs 
+  public static void merge(int[] arr, int l, int m, int r) 
+  { 
+    // Original array is broken in two parts 
+    // left and right array 
+    int len1 = m - l + 1, len2 = r - m; 
+    int[] left = new int[len1]; 
+    int[] right = new int[len2]; 
+    for (int x = 0; x < len1; x++) { 
+      left[x] = arr[l + x]; 
+    } 
+    for (int x = 0; x < len2; x++) { 
+      right[x] = arr[m + 1 + x]; 
+    } 
+
+    int i = 0; 
+    int j = 0; 
+    int k = l; 
+
+    // After comparing, we merge those two array 
+    // in larger sub array 
+    while (i < len1 && j < len2) { 
+      if (left[i] <= right[j]) { 
+        arr[k] = left[i]; 
+        i++; 
+      } 
+      else { 
+        arr[k] = right[j]; 
+        j++; 
+      } 
+      k++; 
+    } 
+
+    // Copy remaining elements 
+    // of left, if any 
+    while (i < len1) { 
+      arr[k] = left[i]; 
+      k++; 
+      i++; 
+    } 
+
+    // Copy remaining element 
+    // of right, if any 
+    while (j < len2) { 
+      arr[k] = right[j]; 
+      k++; 
+      j++; 
+    } 
+  } 
+
+  // Iterative Timsort function to sort the 
+  // array[0...n-1] (similar to merge sort) 
+  public static void timSort(int[] arr, int n) 
+  { 
+    int minRun = minRunLength(MIN_MERGE); 
+
+    // Sort individual subarrays of size RUN 
+    for (int i = 0; i < n; i += minRun) { 
+      insertionSort( 
+        arr, i, 
+        Math.min((i + MIN_MERGE - 1), (n - 1))); 
+    } 
+
+    // Start merging from size 
+    // RUN (or 32). It will 
+    // merge to form size 64, 
+    // then 128, 256 and so on 
+    // .... 
+    for (int size = minRun; size < n; size = 2 * size) { 
+
+      // Pick starting point 
+      // of left sub array. We 
+      // are going to merge 
+      // arr[left..left+size-1] 
+      // and arr[left+size, left+2*size-1] 
+      // After every merge, we 
+      // increase left by 2*size 
+      for (int left = 0; left < n; left += 2 * size) { 
+
+        // Find ending point of left sub array 
+        // mid+1 is starting point of right sub 
+        // array 
+        int mid = left + size - 1; 
+        int right = Math.min((left + 2 * size - 1), 
+                  (n - 1)); 
+
+        // Merge sub array arr[left.....mid] & 
+        // arr[mid+1....right] 
+        if (mid < right) 
+          merge(arr, left, mid, right); 
+      } 
+    } 
+  } 
+
+  // Utility function to print the Array 
+  public static void printArray(int[] arr, int n) 
+  { 
+    for (int i = 0; i < n; i++) { 
+      System.out.print(arr[i] + " "); 
+    } 
+    System.out.print("\n"); 
+  } 
+
+  // Driver code 
+  public static void main(String[] args) 
+  { 
+    int[] arr = { -2, 7, 15, -14, 0, 15, 0, 7, 
+          -7, -4, -13, 5, 8, -14, 12 }; 
+    int n = arr.length; 
+    System.out.println("Given Array is"); 
+    printArray(arr, n); 
+
+    timSort(arr, n); 
+
+    System.out.println("After Sorting Array is"); 
+    printArray(arr, n); 
+  } 
+} 
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0"># Python3 program to perform basic timSort 
+MIN_MERGE = 32
+
+def calcMinRun(n): 
+  """Returns the minimum length of a 
+  run from 23 - 64 so that 
+  the len(array)/minrun is less than or 
+  equal to a power of 2. 
+
+  e.g. 1=>1, ..., 63=>63, 64=>32, 65=>33, 
+  ..., 127=>64, 128=>32, ... 
+  """
+  r = 0
+  while n >= MIN_MERGE: 
+    r |= n & 1
+    n >>= 1
+  return n + r 
+
+
+# This function sorts array from left index to 
+# to right index which is of size atmost RUN 
+def insertionSort(arr, left, right): 
+  for i in range(left + 1, right + 1): 
+    j = i 
+    while j > left and arr[j] < arr[j - 1]: 
+      arr[j], arr[j - 1] = arr[j - 1], arr[j] 
+      j -= 1
+
+
+# Merge function merges the sorted runs 
+def merge(arr, l, m, r): 
+
+  # original array is broken in two parts 
+  # left and right array 
+  len1, len2 = m - l + 1, r - m 
+  left, right = [], [] 
+  for i in range(0, len1): 
+    left.append(arr[l + i]) 
+  for i in range(0, len2): 
+    right.append(arr[m + 1 + i]) 
+
+  i, j, k = 0, 0, l 
+
+  # after comparing, we merge those two array 
+  # in larger sub array 
+  while i < len1 and j < len2: 
+    if left[i] <= right[j]: 
+      arr[k] = left[i] 
+      i += 1
+
+    else: 
+      arr[k] = right[j] 
+      j += 1
+
+    k += 1
+
+  # Copy remaining elements of left, if any 
+  while i < len1: 
+    arr[k] = left[i] 
+    k += 1
+    i += 1
+
+  # Copy remaining element of right, if any 
+  while j < len2: 
+    arr[k] = right[j] 
+    k += 1
+    j += 1
+
+
+# Iterative Timsort function to sort the 
+# array[0...n-1] (similar to merge sort) 
+def timSort(arr): 
+  n = len(arr) 
+  minRun = calcMinRun(n) 
+
+  # Sort individual subarrays of size RUN 
+  for start in range(0, n, minRun): 
+    end = min(start + minRun - 1, n - 1) 
+    insertionSort(arr, start, end) 
+
+  # Start merging from size RUN (or 32). It will merge 
+  # to form size 64, then 128, 256 and so on .... 
+  size = minRun 
+  while size < n: 
+
+    # Pick starting point of left sub array. We 
+    # are going to merge arr[left..left+size-1] 
+    # and arr[left+size, left+2*size-1] 
+    # After every merge, we increase left by 2*size 
+    for left in range(0, n, 2 * size): 
+
+      # Find ending point of left sub array 
+      # mid+1 is starting point of right sub array 
+      mid = min(n - 1, left + size - 1) 
+      right = min((left + 2 * size - 1), (n - 1)) 
+
+      # Merge sub array arr[left.....mid] & 
+      # arr[mid+1....right] 
+      if mid < right: 
+        merge(arr, left, mid, right) 
+
+    size = 2 * size 
+
+
+# Driver program to test above function 
+if __name__ == "__main__": 
+
+  arr = [-2, 7, 15, -14, 0, 15, 0, 
+    7, -7, -4, -13, 5, 8, -14, 12] 
+
+  print("Given Array is") 
+  print(arr) 
+
+  # Function Call 
+  timSort(arr) 
+
+  print("After Sorting Array is") 
+  print(arr)                     
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">// C++ program to perform TimSort. 
+#include < bits/stdc++.h > 
+using namespace std; 
+const int RUN = 32; 
+
+// This function sorts array from left 
+// index to to right index which is 
+// of size atmost RUN 
+void insertionSort(int arr[], int left, int right) 
+{ 
+  for (int i = left + 1; i <= right; i++) { 
+    int temp = arr[i]; 
+    int j = i - 1; 
+    while (j >= left && arr[j] > temp) { 
+      arr[j + 1] = arr[j]; 
+      j--; 
+    } 
+    arr[j + 1] = temp; 
+  } 
+} 
+
+// Merge function merges the sorted runs 
+void merge(int arr[], int l, int m, int r) 
+{ 
+
+  // Original array is broken in two 
+  // parts left and right array 
+  int len1 = m - l + 1, len2 = r - m; 
+  int left[len1], right[len2]; 
+  for (int i = 0; i < len1; i++) 
+    left[i] = arr[l + i]; 
+  for (int i = 0; i < len2; i++) 
+    right[i] = arr[m + 1 + i]; 
+
+  int i = 0; 
+  int j = 0; 
+  int k = l; 
+
+  // After comparing, we 
+  // merge those two array 
+  // in larger sub array 
+  while (i < len1 && j < len2) { 
+    if (left[i] <= right[j]) { 
+      arr[k] = left[i]; 
+      i++; 
+    } 
+    else { 
+      arr[k] = right[j]; 
+      j++; 
+    } 
+    k++; 
+  } 
+
+  // Copy remaining elements of 
+  // left, if any 
+  while (i < len1) { 
+    arr[k] = left[i]; 
+    k++; 
+    i++; 
+  } 
+
+  // Copy remaining element of 
+  // right, if any 
+  while (j < len2) { 
+    arr[k] = right[j]; 
+    k++; 
+    j++; 
+  } 
+} 
+
+// Iterative Timsort function to sort the 
+// array[0...n-1] (similar to merge sort) 
+void timSort(int arr[], int n) 
+{ 
+
+  // Sort individual subarrays of size RUN 
+  for (int i = 0; i < n; i += RUN) 
+    insertionSort(arr, i, min((i + RUN - 1), (n - 1))); 
+
+  // Start merging from size RUN (or 32). 
+  // It will merge 
+  // to form size 64, then 128, 256 
+  // and so on .... 
+  for (int size = RUN; size < n; size = 2 * size) { 
+
+    // pick starting point of 
+    // left sub array. We 
+    // are going to merge 
+    // arr[left..left+size-1] 
+    // and arr[left+size, left+2*size-1] 
+    // After every merge, we 
+    // increase left by 2*size 
+    for (int left = 0; left < n; left += 2 * size) { 
+
+      // Find ending point of 
+      // left sub array 
+      // mid+1 is starting point 
+      // of right sub array 
+      int mid = left + size - 1; 
+      int right = min((left + 2 * size - 1), (n - 1)); 
+
+      // merge sub array arr[left.....mid] & 
+      // arr[mid+1....right] 
+      if (mid < right) 
+        merge(arr, left, mid, right); 
+    } 
+  } 
+} 
+
+// Utility function to print the Array 
+void printArray(int arr[], int n) 
+{ 
+  for (int i = 0; i < n; i++) 
+    printf("%d ", arr[i]); 
+  printf("\n"); 
+} 
+
+// Driver program to test above function 
+int main() 
+{ 
+  int arr[] = { -2, 7, 15, -14, 0, 15, 0, 7, 
+        -7, -4, -13, 5, 8, -14, 12 }; 
+  int n = sizeof(arr) / sizeof(arr[0]); 
+  printf("Given Array is\n"); 
+  printArray(arr, n); 
+
+  // Function Call 
+  timSort(arr, n); 
+
+  printf("After Sorting Array is\n"); 
+  printArray(arr, n); 
+  return 0; 
+}                    
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">// Javascript program to perform TimSort. 
+let MIN_MERGE = 32; 
+
+function minRunLength(n) 
+{ 
+  
+  // Becomes 1 if any 1 bits are shifted off 
+  let r = 0; 
+  while (n >= MIN_MERGE) 
+  { 
+    r |= (n & 1); 
+    n >>= 1; 
+  } 
+  return n + r; 
+} 
+
+// This function sorts array from left index to 
+// to right index which is of size atmost RUN 
+function insertionSort(arr,left,right) 
+{ 
+  for(let i = left + 1; i <= right; i++) 
+  { 
+    let temp = arr[i]; 
+    let j = i - 1; 
+    
+    while (j >= left && arr[j] > temp) 
+    { 
+      arr[j + 1] = arr[j]; 
+      j--; 
+    } 
+    arr[j + 1] = temp; 
+  } 
+} 
+
+// Merge function merges the sorted runs 
+function merge(arr, l, m, r) 
+{ 
+  
+  // Original array is broken in two parts 
+  // left and right array 
+  let len1 = m - l + 1, len2 = r - m; 
+  let left = new Array(len1); 
+  let right = new Array(len2); 
+  for(let x = 0; x < len1; x++) 
+  { 
+    left[x] = arr[l + x]; 
+  } 
+  for(let x = 0; x < len2; x++) 
+  { 
+    right[x] = arr[m + 1 + x]; 
+  } 
+
+  let i = 0; 
+  let j = 0; 
+  let k = l; 
+
+  // After comparing, we merge those two 
+  // array in larger sub array 
+  while (i < len1 && j < len2) 
+  { 
+    if (left[i] <= right[j]) 
+    { 
+      arr[k] = left[i]; 
+      i++; 
+    } 
+    else
+    { 
+      arr[k] = right[j]; 
+      j++; 
+    } 
+    k++; 
+  } 
+
+  // Copy remaining elements 
+  // of left, if any 
+  while (i < len1) 
+  { 
+    arr[k] = left[i]; 
+    k++; 
+    i++; 
+  } 
+
+  // Copy remaining element 
+  // of right, if any 
+  while (j < len2) 
+  { 
+    arr[k] = right[j]; 
+    k++; 
+    j++; 
+  } 
+} 
+
+// Iterative Timsort function to sort the 
+// array[0...n-1] (similar to merge sort) 
+function timSort(arr, n) 
+{ 
+  let minRun = minRunLength(MIN_MERGE); 
+    
+  // Sort individual subarrays of size RUN 
+  for(let i = 0; i < n; i += minRun) 
+  { 
+    insertionSort(arr, i, Math.min( 
+      (i + MIN_MERGE - 1), (n - 1))); 
+  } 
+
+  // Start merging from size 
+  // RUN (or 32). It will 
+  // merge to form size 64, 
+  // then 128, 256 and so on 
+  // .... 
+  for(let size = minRun; size < n; size = 2 * size) 
+  { 
+    
+    // Pick starting point 
+    // of left sub array. We 
+    // are going to merge 
+    // arr[left..left+size-1] 
+    // and arr[left+size, left+2*size-1] 
+    // After every merge, we 
+    // increase left by 2*size 
+    for(let left = 0; left < n; 
+            left += 2 * size) 
+    { 
+
+      // Find ending point of left sub array 
+      // mid+1 is starting point of right sub 
+      // array 
+      let mid = left + size - 1; 
+      let right = Math.min((left + 2 * size - 1), 
+                  (n - 1)); 
+
+      // Merge sub array arr[left.....mid] & 
+      // arr[mid+1....right] 
+      if(mid < right) 
+        merge(arr, left, mid, right); 
+    } 
+  } 
+} 
+
+// Utility function to print the Array 
+function printArray(arr,n) 
+{ 
+  for(let i = 0; i < n; i++) 
+  { 
+    document.write(arr[i] + " "); 
+  } 
+  document.write("<br>"); 
+} 
+
+// Driver code 
+let arr = [ -2, 7, 15, -14, 0, 15, 0, 7, 
+      -7, -4, -13, 5, 8, -14, 12 ]; 
+let n = arr.length; 
+document.write("Given Array is<br>"); 
+printArray(arr, n); 
+timSort(arr, n); 
+
+document.write("After Sorting Array is<br>"); 
+printArray(arr, n);                       
+                </code>
+              </pre>
+              </div>
+              
+          
+            </div>
+          </div>
+          <div
+            data-sort="shell-sort"
+            data-number="8"
+            class="hidden h-full w-full"
+          >
+            <div class="hidden p-20" data-type="description-8">
+              <h1 class="text-xl font-bold text-emerald-600">Shell Sort:</h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Shell sort is mainly a variation of Insertion Sort. In insertion
+                sort, we move elements only one position ahead. When an element
+                has to be moved far ahead, many movements are involved. The idea
+                of ShellSort is to allow the exchange of far items. In Shell
+                sort, we make the array h-sorted for a large value of h. We keep
+                reducing the value of h until it becomes 1. An array is said to
+                be h-sorted if all sublists of every h’th element are sorted.
+              </p>
+              <h1 class="text-xl font-bold text-emerald-600 mt-4">
+                Complexity Analysis of Shell Sort:
+              </h1>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Time Complexity: Time complexity of the above implementation of
+                Shell sort is O(n2). In the above implementation, the gap is
+                reduced by half in every iteration. There are many other ways to
+                reduce gaps which leads to better time complexity. See this for
+                more details.
+              </p>
+              <ul class="pl-12 mt-4 font-semibold italic list-disc">
+                <li>
+                  Worst Case Complexity: The worst-case complexity for shell
+                  sort is O(N<sup> 2</sup>)
+                </li>
+                <li>
+                  Best Case Complexity: When the given array list is already
+                  sorted the total count of comparisons of each interval is
+                  equal to the size of the given array. So best case complexity
+                  is Ω(n log(n))
+                </li>
+                <li>
+                  Average Case Complexity: The shell sort Average Case
+                  Complexity depends on the interval selected by the programmer.
+                  θ(n log(n)2). THE Average Case Complexity: O(n*log n)~O(N<sup>
+                    1.25</sup
+                  >)
+                </li>
+              </ul>
+              <p class="pl-6 mt-4 break-all italic font-semibold">
+                Space Complexity: The space complexity of the shell sort is
+                O(1).
+              </p>
+            </div>
+            <div
+              class="p-20 h-full w-full flex flex-col justify-center items-center gap-10 simulation hidden"
+              data-type="simulation-8"
+            >
+              <div
+                class="bars8 h-full w-full flex flex-row gap-4 justify-center items-end"
+              ></div>
+              <div class="buttons8">
+                <button
+                  id="init_btn"
+                  class="btn-init-shell text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  New Test
+                </button>
+                <button
+                  class="btn-play-shell text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-12 py-6 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                >
+                  Start Simulation
+                </button>
+              </div>
+            </div>
+            <div class="hidden font-semibold pl-36" data-type="demonstration-8">
+              <h2 class="text-emerald-600 text-2xl pb-4">Working of Shell sort Algorithm:</h2>
+              <p>Now, let's see the working of the shell sort Algorithm.</p>
+              <p>To understand the working of the shell sort algorithm, let's take an unsorted array. It will be easier to understand the shell sort via an example.</p>
+              <p>Let the elements of array are -</p>
+              <img src="https://static.javatpoint.com/ds/images/shell-sort-algorithm1.png" alt="Shell Sort Algorithm">
+              <p>We will use the original sequence of shell sort, i.e., N/2, N/4,....,1 as the intervals.</p>
+              <p>In the first loop, n is equal to 8 (size of the array), so the elements are lying at the interval of 4 (n/2 = 4). Elements will be compared and swapped if they are not in order.</p>
+              <p>Here, in the first loop, the element at the 0<sup>th</sup> position will be compared with the element at 4<sup>th</sup> position. If the 0<sup>th</sup> element is greater, it will be swapped with the element at 4<sup>th</sup> position. Otherwise, it remains the same. This process will continue for the remaining elements.</p>
+              <p>At the interval of 4, the sublists are {33, 12}, {31, 17}, {40, 25}, {8, 42}.</p>
+              <img src="https://static.javatpoint.com/ds/images/shell-sort-algorithm2.png" alt="Shell Sort Algorithm">
+              <p>Now, we have to compare the values in every sub-list. After comparing, we have to swap them if required in the original array. After comparing and swapping, the updated array will look as follows -</p>
+              <img src="https://static.javatpoint.com/ds/images/shell-sort-algorithm3.png" alt="Shell Sort Algorithm">
+              <p>In the second loop, elements are lying at the interval of 2 (n/4 = 2), where n = 8.</p>
+              <p>Now, we are taking the interval of <strong>2</strong> to sort the rest of the array. With an interval of 2, two sublists will be generated - {12, 25, 33, 40}, and {17, 8, 31, 42}.</p>
+              <img src="https://static.javatpoint.com/ds/images/shell-sort-algorithm4.png" alt="Shell Sort Algorithm">
+              <p>Now, we again have to compare the values in every sub-list. After comparing, we have to swap them if required in the original array. After comparing and swapping, the updated array will look as follows -</p>
+              <img src="https://static.javatpoint.com/ds/images/shell-sort-algorithm5.png" alt="Shell Sort Algorithm">
+              <p>In the third loop, elements are lying at the interval of 1 (n/8 = 1), where n = 8. At last, we use the interval of value 1 to sort the rest of the array elements. In this step, shell sort uses insertion sort to sort the array elements.</p>
+              <img src="https://static.javatpoint.com/ds/images/shell-sort-algorithm6.png" alt="Shell Sort Algorithm">
+              <p>Now, the array is sorted in ascending order.</p>
+            </div>
+            <div class="hidden" data-type="code-8">
+              <ul id="myList" class="flex flex-row justify-start" id="myList">
+                <li data-target="content1" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C</li>
+                <li data-target="content2" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Java</li>
+                <li data-target="content3" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">Python</li>
+                <li data-target="content4" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">C++</li>
+                <li data-target="content5" class="border-0 rounded-t-xl text-white mr-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-800 " onclick="changeColor(this)">JavaScript</li>
+              </ul>
+              
+              <div id="content1" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C mt-0">// Shell Sort in C programming
+#include < stdio.h >
+
+// Shell sort
+void shellSort(int array[], int n) {
+  // Rearrange elements at each n/2, n/4, n/8, ... intervals
+  for (int interval = n / 2; interval > 0; interval /= 2) {
+    for (int i = interval; i < n; i += 1) {
+      int temp = array[i];
+      int j;
+      for (j = i; j >= interval && array[j - interval] > temp; j -= interval) {
+        array[j] = array[j - interval];
+      }
+      array[j] = temp;
+    }
+  }
+}
+
+// Print an array
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; ++i) {
+    printf("%d  ", array[i]);
+  }
+  printf("\n");
+}
+
+// Driver code
+int main() {
+  int data[] = {9, 8, 3, 7, 5, 6, 4, 1};
+  int size = sizeof(data) / sizeof(data[0]);
+  shellSort(data, size);
+  printf("Sorted array: \n");
+  printArray(data, size);
+}
+                </code>
+              </pre>
+              </div>
+              <div id="content2" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-java mt-0">
+// Java implementation of ShellSort 
+class ShellSort 
+{ 
+  /* An utility function to print array of size n*/
+  static void printArray(int arr[]) 
+  { 
+    int n = arr.length; 
+    for (int i=0; i < n; ++i) 
+      System.out.print(arr[i] + " "); 
+    System.out.println(); 
+  } 
+
+  /* function to sort arr using shellSort */
+  int sort(int arr[]) 
+  { 
+    int n = arr.length; 
+
+    // Start with a big gap, then reduce the gap 
+    for (int gap = n/2; gap > 0; gap /= 2) 
+    { 
+      // Do a gapped insertion sort for this gap size. 
+      // The first gap elements a[0..gap-1] are already 
+      // in gapped order keep adding one more element 
+      // until the entire array is gap sorted 
+      for (int i = gap; i < n; i += 1) 
+      { 
+        // add a[i] to the elements that have been gap 
+        // sorted save a[i] in temp and make a hole at 
+        // position i 
+        int temp = arr[i]; 
+
+        // shift earlier gap-sorted elements up until 
+        // the correct location for a[i] is found 
+        int j; 
+        for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
+          arr[j] = arr[j - gap]; 
+
+        // put temp (the original a[i]) in its correct 
+        // location 
+        arr[j] = temp; 
+      } 
+    } 
+    return 0; 
+  } 
+
+  // Driver method 
+  public static void main(String args[]) 
+  { 
+    int arr[] = {12, 34, 54, 2, 3}; 
+    System.out.println("Array before sorting"); 
+    printArray(arr); 
+
+    ShellSort ob = new ShellSort(); 
+    ob.sort(arr); 
+
+    System.out.println("Array after sorting"); 
+    printArray(arr); 
+  } 
+} 
+                </code>
+              </pre>
+              </div>
+              <div id="content3" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-python mt-0">
+# Python3 program for implementation of Shell Sort 
+# Python3 program for implementation of Shell Sort 
+
+def shellSort(arr, n): 
+  # code here 
+  gap=n//2
+  
+  
+  while gap>0: 
+    j=gap 
+    # Check the array in from left to right 
+    # Till the last possible index of j 
+    while j < n: 
+      i=j-gap # This will keep help in maintain gap value 
+      
+      while i>=0: 
+        # If value on right side is already greater than left side value 
+        # We don't do swap else we swap 
+        if arr[i+gap]>arr[i]: 
+
+          break
+        else: 
+          arr[i+gap],arr[i]=arr[i],arr[i+gap] 
+
+        i=i-gap # To check left side also 
+              # If the element present is greater than current element 
+      j+=1
+    gap=gap//2
+
+# driver to check the code 
+arr2 = [12, 34, 54, 2, 3] 
+print("input array:",arr2) 
+
+shellSort(arr2,len(arr2)) 
+print("sorted array",arr2)                     
+                </code>
+              </pre>
+              </div>
+              <div id="content4" class="content hidden bg-[#011627]">
+                <pre class="mt-0">
+                  <code class="language-C++ mt-0">// C++ implementation of Shell Sort 
+#include < iostream > 
+using namespace std; 
+
+/* function to sort arr using shellSort */
+int shellSort(int arr[], int n) 
+{ 
+	// Start with a big gap, then reduce the gap 
+	for (int gap = n/2; gap > 0; gap /= 2) 
+	{ 
+		// Do a gapped insertion sort for this gap size. 
+		// The first gap elements a[0..gap-1] are already in gapped order 
+		// keep adding one more element until the entire array is 
+		// gap sorted 
+		for (int i = gap; i < n; i += 1) 
+		{ 
+			// add a[i] to the elements that have been gap sorted 
+			// save a[i] in temp and make a hole at position i 
+			int temp = arr[i]; 
+
+			// shift earlier gap-sorted elements up until the correct 
+			// location for a[i] is found 
+			int j;			 
+			for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
+				arr[j] = arr[j - gap]; 
+			
+			// put temp (the original a[i]) in its correct location 
+			arr[j] = temp; 
+		} 
+	} 
+	return 0; 
+} 
+
+void printArray(int arr[], int n) 
+{ 
+	for (int i=0; i < n; i++) 
+		cout << arr[i] << " "; 
+} 
+
+int main() 
+{ 
+	int arr[] = {12, 34, 54, 2, 3}, i; 
+	int n = sizeof(arr)/sizeof(arr[0]); 
+
+	cout << "Array before sorting: \n"; 
+	printArray(arr, n); 
+
+	shellSort(arr, n); 
+
+	cout << "\nArray after sorting: \n"; 
+	printArray(arr, n); 
+
+	return 0; 
+} 
+                  </code>
+                  </pre>
+              </div>
+              <div id="content5" class="content hidden bg-[#011627] overflow-hidden">
+                <pre class="mt-0">
+                  <code class="language-javascript mt-0 ">// Javascript implementation of ShellSort 
+/* An utility function to print array of size n*/
+function printArray(arr) 
+{ 
+  let n = arr.length; 
+    for (let i = 0; i < n; ++i) 
+      document.write(arr[i] + " "); 
+    document.write("<br>"); 
+} 
+
+/* function to sort arr using shellSort */
+function sort(arr) 
+{ 
+  let n = arr.length; 
+
+    // Start with a big gap, then reduce the gap 
+    for (let gap = Math.floor(n/2); gap > 0; gap = Math.floor(gap/2)) 
+    { 
+    
+      // Do a gapped insertion sort for this gap size. 
+      // The first gap elements a[0..gap-1] are already 
+      // in gapped order keep adding one more element 
+      // until the entire array is gap sorted 
+      for (let i = gap; i < n; i += 1) 
+      { 
+      
+        // add a[i] to the elements that have been gap 
+        // sorted save a[i] in temp and make a hole at 
+        // position i 
+        let temp = arr[i]; 
+
+        // shift earlier gap-sorted elements up until 
+        // the correct location for a[i] is found 
+        let j; 
+        for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
+          arr[j] = arr[j - gap]; 
+
+        // put temp (the original a[i]) in its correct 
+        // location 
+        arr[j] = temp; 
+      } 
+    } 
+    return arr; 
+} 
+
+// Driver method 
+let arr = [12, 34, 54, 2, 3]; 
+document.write("Array before sorting<br>"); 
+printArray(arr); 
+
+arr = sort(arr); 
+document.write("Array after sorting<br>"); 
+printArray(arr); 
+                </code>
+              </pre>
+              </div>          
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-primary-100/[.06] sm:p-6 dark:bg-gray-800">
+      <div class="mx-auto max-w-screen-xl">
+        <hr
+          class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+        />
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+            >© 2024 <a href="#" class="hover:underline">SortVista™</a>. All
+            Rights Reserved.
+          </span>
+          <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+            <a
+              href="https://github.com/youssefCOD/Tri_Website"
+              class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/algorithms.js"></script>
+    <script src="js/SearchingBar.js"></script>
+    <script src="js/ListToggling.js"></script>
+    <script src="js/codeDisplay.js"></script>
+    <script src="js/codeDisplay2.js"></script>
+    <script src="js/ButtonClicked.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+  </body>
+</html>

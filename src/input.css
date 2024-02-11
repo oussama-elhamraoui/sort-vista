@@ -1,0 +1,75 @@
+@import url(https://db.onlinewebfonts.com/c/f05ebd6896d6e78ea42304986e88ef02?family=Vito+Wide+Bold);
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #d7d7d7;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #717171;
+}
+
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #dddddd;
+}
+
+
+/* code for list to change colors from and to black */
+#myList li {
+  padding: 10px;
+  background-color: #28a745; /* Green color */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#myList li.clicked {
+  background-color: #000; /* Black color */
+}
+
+h3.question {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 100;
+}
+
+.editor-container {
+  width: 900px;
+  height: 540px;
+  margin: 20px auto;
+  position: relative;
+}
+
+#editor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+}
